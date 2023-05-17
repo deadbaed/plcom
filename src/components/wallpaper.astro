@@ -11,10 +11,13 @@ const wallpaper = wallpapers[Math.floor(Math.random() * wallpapers.length)];
     class="relative text-white w-full h-almostscreen bg-center bg-fixed bg-cover"
     style=`background-image: url(${wallpaper.file});`
 >
+
+    <!-- Content inside -->
     <slot />
 
+    <!-- Exif info -->
     <div
-        class="absolute bottom-3 sm:bottom-5 left-2 sm:left-5 inline-block backdrop-blur-lg rounded-lg shadow-2xl p-2 space-y-0.5 sm:space-y-2"
+        class="absolute bottom-3 sm:bottom-5 left-2 sm:left-5 inline-block backdrop-blur-lg backdrop-brightness-75 rounded-xl shadow-2xl p-2 space-y-0.5 sm:space-y-2"
     >
 
         <!-- Location -->

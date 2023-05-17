@@ -1,6 +1,7 @@
 
 import exifr from "npm:exifr@^7.1.3";
 import { writeJson } from "https://deno.land/x/jsonfile@1.0.0/mod.ts";
+import { mime } from "https://deno.land/x/mimetypes@v1.0.0/mod.ts";
 
 const publicPath = "/public";
 const wallpapersPath = "/wallpapers";
@@ -17,9 +18,12 @@ const wallpapers: MyWallpaper[] = [];
 // For each file in the wallpapers directory
 for await (const dirEntry of Deno.readDir(imagesPath)) {
 
-    if (!dirEntry.isFile || dirEntry.name === ".gitkeep") {
+    // Make sure it is a file and it is an image
+    if (!dirEntry.isFile || !mime.getType(dirEntry.name)?.startsWith("image/")) {
         continue;
     }
+
+    console.log(`Processing ${dirEntry.name}`);
 
     // Open file
     const path = `${imagesPath}/${dirEntry.name}`;
@@ -43,8 +47,6 @@ for await (const dirEntry of Deno.readDir(imagesPath)) {
 
     // Final filename
     const file = `${wallpapersPath}/${dirEntry.name}`;
-
-    console.log(`Processed ${file}`);
 
     wallpapers.push({
         file,

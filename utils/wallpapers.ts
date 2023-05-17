@@ -38,8 +38,9 @@ for await (const dirEntry of Deno.readDir(imagesPath)) {
     const date = dateObject.toISOString().split("T")[0];
 
     // Http request to get location
+    // Documentation: https://nominatim.org/release-docs/develop/api/Reverse/
     const response = await fetch(
-        `https://nominatim.openstreetmap.org/reverse?format=json&lat=${exif.latitude}&lon=${exif.longitude}&zoom=5`,
+        `https://nominatim.openstreetmap.org/reverse?format=json&lat=${exif.latitude}&lon=${exif.longitude}&zoom=8`,
         { headers: { "User-Agent": "https://philippeloctaux.com" } }
     );
     const data = await response.json();

@@ -9,6 +9,10 @@ http://philippeloctaux.com
 - https://astro.build
 - https://tailwindcss.com
 
+## colors
+
+- main color: `#0c4a6e`
+
 ## wallpapers
 
 1. place **JPEG** files in `public/wallpapers` and make sure they have exif data (GPS + date)

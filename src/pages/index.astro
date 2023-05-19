@@ -1,25 +1,16 @@
 ---
-import Footer from "../components/footer.astro";
+import Page from "../layouts/page.astro";
 import Hero from "../components/hero.astro";
 import Whoami from "../components/whoami.astro";
 import Www from "../components/www.astro";
 ---
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="viewport" content="width=device-width" />
-        <title>Philippe Loctaux</title>
-    </head>
-    <body class="bg-gray-900 text-white">
-        <Hero />
-        <main class="container mx-auto px-4 py-16">
-            <Whoami />
-            <div class="my-16">
-                <Www />
-            </div>
-        </main>
-        <Footer />
-    </body>
-</html>
+<Page>
+    <Hero />
+    <main class="container mx-auto px-4 py-16">
+        <Whoami />
+        <div class="my-16">
+            <Www />
+        </div>
+    </main>
+</Page>

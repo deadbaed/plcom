@@ -1,0 +1,58 @@
+---
+import TalkCard from "./talk-card.astro";
+---
+
+<div>
+    <h1 class="text-4xl font-bold mb-4">Talks</h1>
+    <p class="text-lg text-justify">
+        Giving a talk is the opportunity to share what I know, and helps me
+        reduce my fear of public speaking.
+    </p>
+
+    <div
+        class="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 place-content-center"
+    >
+        <TalkCard
+            title="Vim"
+            date="February 2023"
+            location="Epitech Rennes"
+            linkUri="https://x4m3.rocks/talks/vim.pdf"
+            linkLabel="Slides"
+        />
+        <TalkCard
+            title="CLion"
+            date="March 2021"
+            location="Epitech Rennes"
+            linkUri="https://x4m3.rocks/talks/clion.pdf"
+            linkLabel="Slides"
+        />
+        <TalkCard
+            title="git & devops 2"
+            date="February 2021"
+            location="Epitech Rennes"
+            linkUri="https://x4m3.rocks/talks/git-devops2.pdf"
+            linkLabel="Slides"
+        />
+        <TalkCard
+            title="pass4thewin"
+            date="February 2021"
+            location="Epitech Rennes"
+            linkUri="https://x4m3.rocks/talks/pass4thewin.pdf"
+            linkLabel="Slides"
+        />
+        <TalkCard
+            title="git & devops"
+            date="May 2020"
+            location="Epitech Rennes"
+            linkUri="https://x4m3.rocks/talks/git-devops.pdf"
+            linkLabel="Slides"
+        />
+        <TalkCard
+            title="git gud"
+            date="May 2019"
+            location="Epitech Rennes"
+            linkUri="https://x4m3.rocks/talks/git-tek.pdf"
+            linkLabel="Slides"
+        />
+    </div>
+</div>

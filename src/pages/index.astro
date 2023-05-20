@@ -3,14 +3,16 @@ import Page from "../layouts/page.astro";
 import Hero from "../components/hero.astro";
 import Whoami from "../components/whoami.astro";
 import Www from "../components/www.astro";
+import Talks from "../components/talks.astro";
 ---
 
 <Page>
     <Hero />
     <main class="container mx-auto px-4 py-16">
         <Whoami />
-        <div class="my-16">
+        <div class="my-16 space-y-32">
             <Www />
+            <Talks />
         </div>
     </main>
 </Page>

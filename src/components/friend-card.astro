@@ -1,0 +1,38 @@
+---
+interface Props {
+    name: string;
+    linkUri: string;
+}
+
+const { name, linkUri } = Astro.props;
+
+function extractInitials(name: string) {
+    // Split the name into words
+    const words = name.split(" ");
+
+    // Iterate over the words and extract the initials
+    const initials = words.map((word) => word.charAt(0).toUpperCase()).join("");
+
+    return initials;
+}
+
+const initials = extractInitials(name);
+const linkLabel = linkUri.replace(/^https?:\/\//, "");
+---
+
+<li class="py-2">
+    <a
+        href={linkUri}
+        target="_blank"
+        class="hover:bg-gray-500 transition-all duration-200 flex items-center rounded-lg p-2"
+    >
+        <span
+            class="rounded-full flex-shrink-0 mr-4 w-10 h-10 bg-sky-900 text-white flex items-center justify-center text-lg font-medium"
+            >{initials}</span
+        >
+        <div>
+            <p class="font-bold">{name}</p>
+            <p class="">{linkLabel}</p>
+        </div>
+    </a>
+</li>

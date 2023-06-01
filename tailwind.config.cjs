@@ -4,7 +4,7 @@ module.exports = {
 	theme: {
 		extend: {
 			height: {
-				almostscreen: '85vh',
+				almostscreen: '90vh',
 			}
 		},
 	},

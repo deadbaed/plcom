@@ -1,0 +1,113 @@
+---
+interface Props {
+    backgroundColor: string;
+    logo?: string;
+    logoTransparentBackground?: boolean;
+    name: string;
+    dates: string;
+    title: string;
+    link?: { label: string; uri: string };
+    notAvailable?: boolean;
+    image?: { uri: string; breakpoint: string };
+    tech?: string[];
+}
+const {
+    backgroundColor,
+    logo,
+    logoTransparentBackground,
+    name,
+    dates,
+    title,
+    link,
+    notAvailable,
+    image,
+    tech,
+} = Astro.props;
+
+// Define how to display logo
+const logoCss = `h-16 w-16 rounded-xl mr-4 ${
+    logoTransparentBackground === true ? "p-2 bg-white" : ""
+}`;
+
+// Card behavior with and without image
+const cardCss = `${
+    image
+        ? `${image.breakpoint}:flex ${image.breakpoint}:flex-row-reverse items-stretch justify-between`
+        : ""
+} w-full rounded-2xl ${backgroundColor}`;
+
+// Image behavior
+const imageCss = `flex ${image?.breakpoint}:w-1/2 grow ${image?.breakpoint}:rounded-tl-none ${image?.breakpoint}:rounded-r-2xl rounded-t-2xl object-cover`;
+---
+
+<div class={cardCss}>
+    <!-- Optional image on the side -->
+    {image && <img loading="lazy" src={image.uri} class={imageCss} />}
+
+    <!-- Main content -->
+    <div class=`p-6 ${image ? "flex flex-col grow-0" : ""} justify-between h-full`>
+        <div class="flex flex-col">
+            <div class="flex flex-row">
+                {logo && <img loading="lazy" src={logo} class={logoCss} />}
+                <div class="flex flex-col justify-evenly">
+                    <div class="text-xl md:text-2xl font-semibold">{name}</div>
+                    <div class="text-xs md:text-sm">{dates}</div>
+                </div>
+            </div>
+            <p class="text-xl md:text-2xl font-semibold my-4">{title}</p>
+        </div>
+        <div class="space-y-2 text-justify">
+            <!-- Description -->
+            <slot />
+
+            <!-- List technologies -->
+            {
+                tech && (
+                    <div>
+                        <div class="text-xl font-semibold mt-8 mb-2">
+                            Technologies
+                        </div>
+                        <ul>
+                            {tech.map((t) => (
+                                <li>{t}</li>
+                            ))}
+                        </ul>
+                    </div>
+                )
+            }
+        </div>
+
+        <!-- Link with label -->
+        {
+            link && notAvailable !== true && (
+                <a
+                    href={link.uri}
+                    target="_blank"
+                    class="mt-4 inline-flex max-w-fit bg-transparent hover:bg-sky-700 text-white font-semibold py-1.5 px-4 rounded-xl items-center border border-white hover:border-transparent transition-all duration-200"
+                >
+                    <div class="inline-flex items-center">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                            class="w-5 h-5 fill-current mr-2"
+                        >
+                            <path d="M12.232 4.232a2.5 2.5 0 013.536 3.536l-1.225 1.224a.75.75 0 001.061 1.06l1.224-1.224a4 4 0 00-5.656-5.656l-3 3a4 4 0 00.225 5.865.75.75 0 00.977-1.138 2.5 2.5 0 01-.142-3.667l3-3z" />
+                            <path d="M11.603 7.963a.75.75 0 00-.977 1.138 2.5 2.5 0 01.142 3.667l-3 3a2.5 2.5 0 01-3.536-3.536l1.225-1.224a.75.75 0 00-1.061-1.06l-1.224 1.224a4 4 0 105.656 5.656l3-3a4 4 0 00-.225-5.865z" />
+                        </svg>
+                        <span>{link.label}</span>
+                    </div>
+                </a>
+            )
+        }
+
+        <!-- No longer available -->
+        {
+            notAvailable === true && (
+                <span class="mt-4 cursor-not-allowed inline-flex max-w-fit bg-gray-400 text-gray-600 font-semibold py-1.5 px-4 rounded-xl items-center">
+                    No longer available
+                </span>
+            )
+        }
+    </div>
+</div>

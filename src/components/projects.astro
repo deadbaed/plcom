@@ -1,0 +1,195 @@
+---
+import ExperienceCard from "./experience-card.astro";
+---
+
+<div>
+    <h1 class="text-4xl font-bold mb-4">Projects</h1>
+
+    <div class="mt-4 space-y-4">
+        <div
+            class="flex flex-col space-y-4 md:flex-row md:space-x-4 md:space-y-0"
+        >
+            <ExperienceCard
+                backgroundColor="bg-pink-950"
+                logo="/icons/ezidam.png"
+                logoTransparentBackground={true}
+                name="ezidam"
+                dates="January 2023 - May 2023"
+                title="Identity and Access Management system"
+                tech={[
+                    "Rust",
+                    "SQLite",
+                    "OAuth2 / OIDC",
+                    "TOTP",
+                    "SMTP",
+                    "Docker",
+                ]}
+            >
+                <p>
+                    A simple identity and access management system for SMEs or
+                    personal use.
+                </p>
+                <p>Low maintenance required, easy to deploy and to backup.</p>
+
+                <div>
+                    <ul class="list-disc mt-6">
+                        <li class="ml-5">Users management</li>
+                        <li class="ml-5">Roles management</li>
+                        <li class="ml-5">
+                            Assign users to roles and the other way around
+                        </li>
+                        <li class="ml-5">
+                            OAuth2 / OIDC applications (code flow)
+                        </li>
+                        <li class="ml-5">Multi-Factor Authentication (TOTP)</li>
+                        <li class="ml-5">
+                            Password reset (via email or backup token)
+                        </li>
+                        <li class="ml-5">Simple administration panel</li>
+                        <li class="ml-5">
+                            Good security measures for users and administrators
+                        </li>
+                    </ul>
+                </div>
+            </ExperienceCard>
+
+            <ExperienceCard
+                backgroundColor="bg-pink-950"
+                name="pass4thewin"
+                dates="November 2020 - January 2021"
+                title="Password manager"
+                link={{
+                    uri: "https://github.com/x4m3/pass4thewin",
+                    label: "Source code",
+                }}
+                tech={["Windows", "Rust", "OpenPGP", "libgit2"]}
+            >
+                <p>
+                    Port of <a
+                        href="https://passwordstore.org"
+                        class="underline"
+                        target="_blank">pass</a
+                    >, the standard unix password manager on the Windows
+                    platform.
+                </p>
+                <p>
+                    Command line application, compatible with existing secrets
+                </p>
+                <div>
+                    <ul class="list-disc mt-6">
+                        <li class="ml-5">Creation of a store</li>
+                        <li class="ml-5">List secrets</li>
+                        <li class="ml-5">Decrypt secret</li>
+                        <li class="ml-5">
+                            <s>Insert or generate secrets</s> Causes data corruption
+                        </li>
+                        <li class="ml-5">
+                            <s>Edit existing secrets</s> Causes data corruption
+                        </li>
+                        <li class="ml-5">Synchronisation with git</li>
+                        <li class="ml-5">TOTP support</li>
+                    </ul>
+                </div>
+            </ExperienceCard>
+        </div>
+
+        <ExperienceCard
+            backgroundColor="bg-pink-950"
+            logo="/icons/naviarent.png"
+            name="NaviaRent"
+            dates="September 2020 - January 2023"
+            title="Epitech Innovative Project"
+            notAvailable={true}
+            image={{ uri: "/images/naviarent.jpg", breakpoint: "2xl" }}
+            tech={[
+                "NodeJS",
+                "Angular",
+                "Kotlin",
+                "SwiftUI",
+                "Docker",
+                "GitLab CI/CD",
+                "Raspberry Pi",
+                "ESP32",
+            ]}
+        >
+            <p>A B2B platform helping rentals of standup paddle boards.</p>
+
+            <div>
+                <ul class="list-disc mt-6">
+                    <li class="ml-5">
+                        DevOps of all software in the NaviaRent stack
+                    </li>
+                    <li class="ml-5">Creation of the iOS application</li>
+                    <li class="ml-5">
+                        Contributions to the Android application
+                    </li>
+                    <li class="ml-5">Contributions to the backend server</li>
+                    <li class="ml-5">
+                        Creation and contributions to the web client
+                    </li>
+                    <li class="ml-5">Server administration, backups</li>
+                </ul>
+            </div>
+        </ExperienceCard>
+
+        <div
+            class="flex flex-col space-y-4 md:flex-row md:space-x-4 md:space-y-0"
+        >
+            <ExperienceCard
+                backgroundColor="bg-pink-950"
+                name="epitok"
+                dates="June 2020 - September 2020"
+                title="Presence system at Epitech"
+                notAvailable={true}
+                tech={["Rust", "HTML", "Bootstrap", "jQuery", "Docker"]}
+            >
+                <p>
+                    A library and web client to simplify students presence at
+                    Epitech.
+                </p>
+                <p>
+                    Students are handed a piece of paper with a 6 digits number
+                    (called a "token") to verify their presence at school
+                    events.
+                </p>
+                <p>
+                    Teachers use epitok to scan student cards with QR codes on
+                    them instead of printing and handing tokens to students.
+                </p>
+            </ExperienceCard>
+
+            <ExperienceCard
+                backgroundColor="bg-pink-950"
+                name="epi.today"
+                dates="December 2019 - February 2020"
+                title="Calendar for Epitech"
+                notAvailable={true}
+                tech={["TypeScript", "HTML", "Bootstrap", "Docker"]}
+            >
+                <p>A viewer of the Epitech intranet calendar.</p>
+                <p>
+                    Students and teachers glance at their planning without the
+                    need to go on the school's intranet.
+                </p>
+            </ExperienceCard>
+        </div>
+
+        <ExperienceCard
+            backgroundColor="bg-pink-950"
+            logo="/icons/canvas.png"
+            name="canvas.place"
+            dates="April 2017 - January 2020"
+            title="Timelapse"
+            link={{ uri: "https://timelapse.canvas.place", label: "Website" }}
+            image={{ uri: "/images/canvas.png", breakpoint: "md" }}
+            tech={["FFmpeg", "Shell scripting", "nginx"]}
+        >
+            <p>canvas.place is a shared place to express creativity.</p>
+            <p>
+                People from all over the world share one single canvas to paint
+                on.
+            </p>
+            <p>I created and maintained a timelapse of the virtual canvas.</p>
+        </ExperienceCard>
+    </div>
+</div>

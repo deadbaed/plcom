@@ -8,7 +8,7 @@ interface Props {
     title: string;
     link?: { label: string; uri: string };
     notAvailable?: boolean;
-    image?: { uri: string; breakpoint: string };
+    image?: string;
     tech?: string[];
 }
 const {
@@ -28,21 +28,11 @@ const {
 const logoCss = `h-16 w-16 rounded-xl mr-4 ${
     logoTransparentBackground === true ? "p-2 bg-white" : ""
 }`;
-
-// Card behavior with and without image
-const cardCss = `${
-    image
-        ? `${image.breakpoint}:flex ${image.breakpoint}:flex-row-reverse items-stretch justify-between`
-        : ""
-} w-full rounded-2xl ${backgroundColor}`;
-
-// Image behavior
-const imageCss = `flex ${image?.breakpoint}:w-1/2 grow ${image?.breakpoint}:rounded-tl-none ${image?.breakpoint}:rounded-r-2xl rounded-t-2xl object-cover`;
 ---
 
-<div class={cardCss}>
+<div class={`${image ? "2xl:flex 2xl:flex-row-reverse items-stretch justify-between" : "" } w-full rounded-2xl ${backgroundColor}`}>
     <!-- Optional image on the side -->
-    {image && <img loading="lazy" src={image.uri} class={imageCss} />}
+    {image && <img loading="lazy" src={image} class="flex w-full 2xl:w-1/2 grow 2xl:rounded-tl-none 2xl:rounded-r-2xl rounded-t-2xl object-cover" />}
 
     <!-- Main content -->
     <div class=`p-6 ${image ? "flex flex-col grow-0" : ""} justify-between h-full`>

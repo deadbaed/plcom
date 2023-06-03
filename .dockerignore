@@ -1,0 +1,12 @@
+/public/wallpapers.json
+
+/dist/
+/node_modules/
+
+/.idea/
+/.vscode/
+.DS_Store
+
+/readme.md
+/Dockerfile
+/.dockerignore

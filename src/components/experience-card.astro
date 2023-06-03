@@ -8,7 +8,7 @@ interface Props {
     title: string;
     link?: { label: string; uri: string };
     notAvailable?: boolean;
-    image?: {src: string, rightPosition: boolean };
+    image?: { src: string; rightPosition: boolean };
     tech?: string[];
 }
 const {
@@ -25,15 +25,49 @@ const {
 } = Astro.props;
 ---
 
-<div class={`${image ? `2xl:flex ${image.rightPosition ? "2xl:flex-row-reverse" : "" } items-stretch justify-between` : "" } w-full rounded-2xl ${backgroundColor}`}>
+<div
+    class={`${
+        image
+            ? `2xl:flex ${
+                  image.rightPosition ? "2xl:flex-row-reverse" : ""
+              } items-stretch justify-between`
+            : ""
+    } w-full rounded-2xl ${backgroundColor}`}
+>
     <!-- Optional image on the side -->
-    {image && <img loading="lazy" src={image.src} class={`flex w-full 2xl:w-1/2 grow ${image.rightPosition ? "2xl:rounded-tl-none 2xl:rounded-r-2xl" : "2xl:rounded-tr-none 2xl:rounded-l-2xl"} rounded-t-2xl object-cover`} />}
+    {
+        image && (
+            <img
+                loading="lazy"
+                src={image.src}
+                class={`flex w-full 2xl:w-1/2 grow ${
+                    image.rightPosition
+                        ? "2xl:rounded-tl-none 2xl:rounded-r-2xl"
+                        : "2xl:rounded-tr-none 2xl:rounded-l-2xl"
+                } rounded-t-2xl object-cover`}
+            />
+        )
+    }
 
     <!-- Main content -->
-    <div class=`p-6 ${image ? "flex flex-col grow-0" : ""} justify-between h-full`>
+    <div
+        class=`p-6 ${image ? "flex flex-col grow-0" : ""} justify-between h-full`
+    >
         <div class="flex flex-col">
             <div class="flex flex-row">
-                {logo && <img loading="lazy" src={logo} class={`h-16 w-16 rounded-xl mr-4 ${logoTransparentBackground === true ? "p-2 bg-white" : ""}`} />}
+                {
+                    logo && (
+                        <img
+                            loading="lazy"
+                            src={logo}
+                            class={`h-16 w-16 rounded-xl mr-4 ${
+                                logoTransparentBackground === true
+                                    ? "p-2 bg-white"
+                                    : ""
+                            }`}
+                        />
+                    )
+                }
                 <div class="flex flex-col justify-evenly">
                     <div class="text-xl md:text-2xl font-semibold">{name}</div>
                     <div class="text-xs md:text-sm">{dates}</div>

@@ -1,11 +1,29 @@
 
 import exifr from "npm:exifr@^7.1.3";
-import { writeJson } from "https://deno.land/x/jsonfile@1.0.0/mod.ts";
 import { mime } from "https://deno.land/x/mimetypes@v1.0.0/mod.ts";
+import { parse } from "https://deno.land/std@0.190.0/flags/mod.ts";
 
-const publicPath = "/public";
-const wallpapersPath = "/wallpapers";
-const imagesPath = `${Deno.cwd()}${publicPath}${wallpapersPath}`;
+interface Arguments {
+    sourceDir?: string;
+    destinationDir?: string;
+}
+
+const cli: Arguments = parse(Deno.args, {
+    string: ["sourceDir", "destinationDir"],
+});
+
+if (cli.sourceDir === undefined) {
+    console.error("Need source folder for images (relative directory where deno script is ran)");
+    Deno.exit(1);
+}
+
+if (cli.destinationDir === undefined) {
+    console.error("Need destination folder for images");
+    Deno.exit(1);
+}
+
+// Put all wallpapers here
+const imagesPath = `${Deno.cwd()}/${cli.sourceDir}`;
 
 interface MyWallpaper {
     file: string;
@@ -23,7 +41,8 @@ for await (const dirEntry of Deno.readDir(imagesPath)) {
         continue;
     }
 
-    console.log(`Processing ${dirEntry.name}`);
+    // Don't pollute stdout, that's where the json will be put
+    console.error(`Processing ${dirEntry.name}`);
 
     // Open file
     const path = `${imagesPath}/${dirEntry.name}`;
@@ -47,7 +66,7 @@ for await (const dirEntry of Deno.readDir(imagesPath)) {
     const location = data?.display_name;
 
     // Final filename
-    const file = `${wallpapersPath}/${dirEntry.name}`;
+    const file = `${cli.destinationDir}/${dirEntry.name}`;
 
     wallpapers.push({
         file,
@@ -57,7 +76,5 @@ for await (const dirEntry of Deno.readDir(imagesPath)) {
 
 }
 
-// write to /public/wallpapers.json
-const jsonPath = `${Deno.cwd()}${publicPath}/wallpapers.json`;
-await writeJson(jsonPath, wallpapers);
-console.log(`Wrote to ${jsonPath}`);
+// Put final array to stdout
+console.log(JSON.stringify(wallpapers));

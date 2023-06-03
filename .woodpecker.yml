@@ -1,0 +1,20 @@
+pipeline:
+  # build docker image with `latest` tag
+  docker-latest:
+    image: woodpeckerci/plugin-docker-buildx
+    settings:
+      registry: https://gitea.y.z.x4m3.rocks
+      username: ${CI_REPO_OWNER}
+      password:
+        from_secret: DOCKER_PASSWORD
+      repo: gitea.y.z.x4m3.rocks/${CI_REPO_OWNER}/plcom
+      tag: latest
+
+  # deploy
+  deploy-latest:
+    image: caprover/cli-caprover:2.2.3
+    commands:
+      - caprover deploy -u $CAPROVER_URL -a $CAPROVER_APP -i gitea.y.z.x4m3.rocks/${CI_REPO_OWNER}/plcom:latest
+    secrets: [ CAPROVER_URL, CAPROVER_APP_TOKEN, CAPROVER_APP ]
+
+branches: master

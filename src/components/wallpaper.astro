@@ -10,9 +10,33 @@ const [location1, ...locationRest] = wallpaper.location.split(",");
 const location2 = locationRest.join(",");
 ---
 
+<style>
+    /* Fixed background when scrolling in tailwind
+     * Disabled on iOS devices
+
+     * https://tailwindcss.com/docs/background-attachment
+     * https://stackoverflow.com/a/60220757/4809297
+     */
+
+    @supports (-webkit-touch-callout: none) {
+        /* CSS specific to iOS devices */
+        #wallpaper {
+            background-attachment: scroll;
+        }
+    }
+
+    @supports not (-webkit-touch-callout: none) {
+        /* CSS for other than iOS devices */
+        #wallpaper {
+            background-attachment: fixed;
+        }
+    }
+</style>
+
 <div class="bg-gradient-to-r from-red-900 via-teal-900 to-fuchsia-900">
     <div
-        class="relative text-white w-full h-almostscreen bg-center bg-scroll bg-cover"
+        id="wallpaper"
+        class="relative text-white w-full h-almostscreen bg-center bg-cover"
         style=`background-image: url(${wallpaper.file});`
     >
         <!-- Content inside -->

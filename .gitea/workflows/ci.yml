@@ -1,0 +1,25 @@
+name: Build
+on: [push]
+
+jobs:
+  build-docker:
+    runs-on: node-16-bullseye
+    container:
+      image: ubuntu:act-22.04-philt3r
+    steps:
+      - name: get code
+        uses: actions/checkout@v3
+      - name: QEMU
+        uses: docker/setup-qemu-action@v2
+      - name: Docker Buildx
+        uses: docker/setup-buildx-action@v2
+        with:
+          driver-opts: image=moby/buildkit:buildx-stable-1-philt3r
+      - name: Build and push
+        uses: docker/build-push-action@v4
+        env:
+          ACTIONS_RUNTIME_TOKEN: ''
+        with:
+          push: true
+          tags: ${{ gitea.server_url }}/${{ gitea.repository }}:latest
+  

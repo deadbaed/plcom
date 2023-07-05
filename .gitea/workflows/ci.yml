@@ -21,5 +21,5 @@ jobs:
           ACTIONS_RUNTIME_TOKEN: ''
         with:
           push: true
-          tags: ${{ gitea.server_url }}/${{ gitea.repository }}:latest
+          tags: git.philt3r/${{ gitea.repository }}:latest
   

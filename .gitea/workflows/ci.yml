@@ -21,11 +21,17 @@ jobs:
           registry: git.philt3r
           username: ${{ gitea.repository_owner }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
+      - name: Login to Container Registry x4m3rocks
+        uses: docker/login-action@v2
+        with:
+          registry: registry-registry.y.z.x4m3.rocks
+          username: ${{ secrets.REGISTRY_X4M3_ROCKS_USERNAME }}
+          password: ${{ secrets.REGISTRY_X4M3_ROCKS_PASSWORD }}
       - name: Build and push
         uses: docker/build-push-action@v4
         env:
           ACTIONS_RUNTIME_TOKEN: ''
         with:
           push: true
-          tags: git.philt3r/${{ gitea.repository }}:latest
+          tags: git.philt3r/${{ gitea.repository }}:latest,registry-registry.y.z.x4m3.rocks/${{ gitea.repository }}:latest
   

@@ -1,20 +1,11 @@
 # wallpapers
-/public/wallpapers.json
+/src/wallpapers.rs
+
+# built css
+/public/style.css
 
 # build output
-dist/
-# generated types
-.astro/
-
-# dependencies
-node_modules/
-
-# logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-
+/target
 
 # environment variables
 .env

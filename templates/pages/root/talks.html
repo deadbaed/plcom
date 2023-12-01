@@ -1,0 +1,46 @@
+<div>
+    <h1 class="text-4xl font-bold mb-4">Talks</h1>
+    <p class="text-lg">
+        Giving a talk is the opportunity to share what I know, and helps me
+        reduce my fear of public speaking.
+    </p>
+
+    <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 place-content-center">
+
+        {% for talk in talks %}
+        <div class="rounded-2xl w-full bg-teal-950 p-6">
+
+            <!-- Title -->
+            <h3 class="text-xl font-semibold mb-4">{{talk.title}}</h3>
+
+            <!-- Date -->
+            <div class="flex">
+                <div class="inline-flex items-center">
+                    {% include "icons/calendar.html" %}
+                    <span class="ml-2">{{talk.date}}</span>
+                </div>
+            </div>
+
+            <!-- Location -->
+            <div class="flex">
+                <div class="inline-flex items-center">
+                    {% include "icons/location.html" %}
+                    <span class="ml-2">{{talk.location}}</span>
+                </div>
+            </div>
+
+            <!-- Link with label -->
+            <a
+                    href={{talk.link.uri}}
+                    target="_blank"
+                    class="mt-4 inline-flex bg-transparent hover:bg-sky-700 text-white font-semibold py-1.5 px-4 rounded-xl items-center border border-white hover:border-transparent transition-all duration-200"
+            >
+                <div class="inline-flex items-center">
+                    {% include "icons/link.html" %}
+                    <span>{{talk.link.label}}</span>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>

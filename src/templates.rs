@@ -1,8 +1,7 @@
 use crate::filters;
 use crate::types::*;
-use askama::Template;
 
-#[derive(Template)]
+#[derive(askama::Template)]
 #[template(path = "pages/root.html")]
 pub struct Root<'a> {
     pub title: &'a str,
@@ -20,7 +19,7 @@ struct RootResponder<'a> {
     template: Root<'a>,
 }
 
-#[derive(Template)]
+#[derive(askama::Template)]
 #[template(path = "pages/404.html")]
 pub struct NotFound<'a> {
     pub title: &'a str,
@@ -32,7 +31,7 @@ struct NotFoundResponder<'a> {
     template: NotFound<'a>,
 }
 
-#[derive(Template)]
+#[derive(askama::Template)]
 #[template(path = "pages/email.html")]
 pub struct Email<'a> {
     pub title: &'a str,
@@ -42,4 +41,17 @@ pub struct Email<'a> {
 #[derive(rocket::Responder)]
 struct EmailResponder<'a> {
     template: Email<'a>,
+}
+
+#[derive(askama::Template)]
+#[template(path = "pages/wallpapers.html")]
+pub struct Wallpapers<'a> {
+    pub title: &'a str,
+    pub year: i32,
+    pub wallpapers: &'static [&'static Wallpaper],
+}
+
+#[derive(rocket::Responder)]
+struct WallpapersResponder<'a> {
+    template: Wallpapers<'a>,
 }

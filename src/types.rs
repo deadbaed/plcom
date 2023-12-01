@@ -26,9 +26,20 @@ pub struct Link {
 pub struct Location {
     pub precise: &'static str,
     pub broad: &'static str,
+    pub gps: Gps,
+}
+
+pub struct Gps {
     pub latitude: f32,
     pub longitude: f32,
 }
+
+impl std::fmt::Display for Gps {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "[{}, {}]", self.latitude, self.longitude)
+    }
+}
+
 pub struct Wallpaper {
     pub file: &'static str,
     pub date: &'static str,

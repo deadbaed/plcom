@@ -12,22 +12,28 @@ mod wallpapers;
 
 #[launch]
 fn rocket() -> _ {
-    rocket::build()
+    let server = rocket::build()
         .mount("/", FileServer::from("public"))
-        .mount("/", routes![root, email])
-        .register("/", catchers![not_found])
-        .attach(
-            rocket_async_compression::CachedCompression::path_suffix_fairing(vec![
-                // Code
-                ".js".into(),
-                ".css".into(),
-                // Documents
-                ".pdf".into(),
-                ".txt".into(),
-            ]),
-        )
-        .attach(cache::CacheControl::default())
-        .attach(minify::Minify)
+        .mount("/", routes![root, email, wallpapers_route])
+        .register("/", catchers![not_found]);
+
+    if cfg!(debug_assertions) {
+        server
+    } else {
+        server
+            .attach(
+                rocket_async_compression::CachedCompression::path_suffix_fairing(vec![
+                    // Code
+                    ".js".into(),
+                    ".css".into(),
+                    // Documents
+                    ".pdf".into(),
+                    ".txt".into(),
+                ]),
+            )
+            .attach(cache::CacheControl::default())
+            .attach(minify::Minify)
+    }
 }
 
 #[catch(404)]
@@ -57,5 +63,14 @@ fn email() -> templates::Email<'static> {
     templates::Email {
         title: "Email",
         year: chrono::Utc::now().year(),
+    }
+}
+
+#[get("/wallpapers")]
+fn wallpapers_route() -> templates::Wallpapers<'static> {
+    templates::Wallpapers {
+        title: "Wallpapers",
+        year: chrono::Utc::now().year(),
+        wallpapers: WALLPAPERS,
     }
 }

@@ -7,7 +7,7 @@ use std::path::PathBuf;
 const WALLPAPERS_PATH: &str = "/public/wallpapers";
 const CRATE_PATH: &str = env!("CARGO_MANIFEST_DIR");
 
-const IMPORTS: &str = r#"use crate::types::{Location,Wallpaper};"#;
+const IMPORTS: &str = r#"use crate::types::{Gps, Location, Wallpaper};"#;
 
 #[derive(Debug)]
 struct Metadata {
@@ -185,8 +185,19 @@ fn main() {
         println!("Precise location is `{}`", precise);
         println!("Broad location is `{}`", broad);
 
-        // Construct struct
-        let wallpaper_struct = format!("&Wallpaper {{ file: \"{}\", date: \"{}\", location: Location {{ precise: \"{}\", broad: \"{}\", latitude: {}, longitude: {} }} }},\n", wallpaper.file, wallpaper.date, precise, broad, wallpaper.latitude, wallpaper.longitude);
+        // Construct structs
+        let gps_struct = format!(
+            "Gps {{ latitude: {}, longitude: {} }}",
+            wallpaper.latitude, wallpaper.longitude
+        );
+        let location_struct = format!(
+            "Location {{ precise: \"{}\", broad: \"{}\", gps: {} }}",
+            precise, broad, gps_struct
+        );
+        let wallpaper_struct = format!(
+            "&Wallpaper {{ file: \"{}\", date: \"{}\", location: {} }},\n",
+            wallpaper.file, wallpaper.date, location_struct
+        );
 
         wallpapers.push_str(&wallpaper_struct);
     }

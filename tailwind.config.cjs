@@ -7,6 +7,7 @@ module.exports = {
 		extend: {
 			height: {
 				almostscreen: '90vh',
+				halfscreen: '60vh',
 			}
 		},
 	},

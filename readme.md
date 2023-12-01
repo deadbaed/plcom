@@ -6,7 +6,7 @@ http://philippeloctaux.com
 
 ## tech
 
-- https://astro.build
+- https://rocket.rs
 - https://tailwindcss.com
 
 ## colors
@@ -16,7 +16,7 @@ http://philippeloctaux.com
 ## wallpapers
 
 1. place **JPEG** files in `public/wallpapers` and make sure they have exif data (GPS + date)
-2. install https://deno.land and run `npm run wallpapers` to generate wallpaper metadata
+2. run `cargo run --bin gen-wallpapers` to generate wallpaper metadata
 
 ## icons
 

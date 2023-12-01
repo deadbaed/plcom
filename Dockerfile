@@ -1,31 +1,39 @@
-ARG DENO_VERSION=1.34.1
+ARG RUST_VERSION=1.74.0
 
-# build wallpapers
-FROM denoland/deno:alpine-${DENO_VERSION} as wallpapers
+FROM rust:${RUST_VERSION}-slim-bookworm as builder
 
-WORKDIR /wallpapers
-COPY utils/wallpapers.ts .
-COPY public/wallpapers ./wallpapers/
-RUN deno run --allow-read --allow-net wallpapers.ts --sourceDir ./wallpapers/ --destinationDir /wallpapers > wallpapers.json
+# tailwind
+WORKDIR /usr/bin/
+ADD https://github.com/tailwindlabs/tailwindcss/releases/download/v3.3.5/tailwindcss-linux-x64 tailwindcss
+RUN chmod +x /usr/bin/tailwindcss
 
-# build astro
-FROM node:18.16-alpine as astro
+# openssl + CA certs
+RUN apt-get update; \
+    apt-get install -y --no-install-recommends ca-certificates pkg-config libssl-dev
 
-WORKDIR /astro
+WORKDIR /usr/src/plcom
+COPY css/ css/
+COPY public/ public/
+COPY templates/ templates/
+COPY src/ src/
+COPY build.rs .
+COPY Cargo.lock .
+COPY Cargo.toml .
+COPY tailwind.config.cjs .
 
-COPY package.json package-lock.json ./
-RUN npm ci
+# generate wallpapers
+RUN cargo build --bin gen-wallpapers --release
+RUN cargo run --bin gen-wallpapers --release
 
-COPY . .
-COPY --from=wallpapers /wallpapers/wallpapers.json ./public/
-RUN npm run build
+# build project
+RUN cargo build --bin plcom --release
 
-# web server
-FROM denoland/deno:alpine-${DENO_VERSION}
+FROM debian:12-slim
+WORKDIR /usr/share/plcom
+COPY --from=builder /usr/src/plcom/public /usr/share/plcom/public
+COPY --from=builder /usr/src/plcom/target/release/plcom /usr/share/plcom
 
+ENV ROCKET_CLI_COLORS=0
+ENV ROCKET_ADDRESS=0.0.0.0
 EXPOSE 8000
-
-WORKDIR /web
-COPY --from=astro /astro/dist .
-RUN deno cache /web/server/entry.mjs
-CMD ["run", "--allow-net", "--allow-read", "--allow-env", "/web/server/entry.mjs"]
+ENTRYPOINT ["/usr/share/plcom/plcom"]

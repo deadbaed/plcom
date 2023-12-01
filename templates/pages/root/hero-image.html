@@ -44,15 +44,21 @@
         <div
                 class="absolute bottom-3 sm:bottom-5 left-2 sm:left-5 inline-block backdrop-blur-lg backdrop-brightness-75 rounded-xl shadow-2xl p-2 space-y-0.5 sm:space-y-2"
         >
+            <!-- See more -->
+            <div class="flex">
+                <div class="inline-flex items-center">
+                    {% include "icons/map.html" %}
+                    <a class="ml-1 text-sm underline" href="/wallpapers">See more!</a>
+                </div>
+            </div>
+
             <!-- Location -->
             <div class="flex">
                 <div class="inline-flex items-center">
                     {% include "icons/location.html" %}
-                    <span class="ml-1 text-sm"
-                    >{{ wallpaper.location.precise }}<span class="hidden md:inline"
-                    >, {{ wallpaper.location.broad }}</span
-                    ></span
-                    >
+                    <span class="ml-1 text-sm">{{ wallpaper.location.precise }}
+                        <span class="hidden md:inline">, {{ wallpaper.location.broad }}</span>
+                    </span>
                 </div>
             </div>
 

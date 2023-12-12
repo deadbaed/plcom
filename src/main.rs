@@ -44,12 +44,14 @@ fn not_found() -> templates::NotFound<'static> {
     }
 }
 
-#[get("/")]
-fn root() -> templates::Root<'static> {
+#[get("/?<wallpaper>")]
+fn root(wallpaper: Option<&str>) -> templates::Root<'static> {
     templates::Root {
         title: "Philippe Loctaux",
         year: chrono::Utc::now().year(),
-        wallpaper: Wallpaper::random(),
+        wallpaper: wallpaper
+            .and_then(Wallpaper::find)
+            .or_else(Wallpaper::random),
         networks: Network::new(),
         jobs: Job::new(),
         talks: Talk::new(),

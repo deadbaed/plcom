@@ -58,4 +58,8 @@ impl Wallpaper {
 
         WALLPAPERS.get(ChaCha20::new().generate_range(range))
     }
+
+    pub fn find(filename: &str) -> Option<&'static &'static Wallpaper> {
+        WALLPAPERS.iter().find(|w| w.file.contains(filename))
+    }
 }

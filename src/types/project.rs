@@ -55,7 +55,7 @@ impl ProjectKind {
                 ProjectWithoutImage {
                     name: "ezidam",
                     tagline: "Identity and Access Management system",
-                    dates: "Since January 2023",
+                    dates: "January - July 2023",
 
                     description: vec![
                         "A simple identity and access management system for SMEs or personal use.",
@@ -223,10 +223,10 @@ impl ProjectKind {
                     description: vec![
                         "canvas.place is a shared place to express creativity.",
                         "People from all over the world share one single canvas to paint on.",
-                        "I created and maintained a timelapse of the virtual canvas.".into()
+                        "I created and maintained a timelapse of the virtual canvas."
                     ],
                     accomplishments: vec![],
-                    technologies: vec!["FFmpeg", "Shell scripting", "nginx".into()],
+                    technologies: vec!["FFmpeg", "Shell scripting", "nginx"],
 
                     logo: Some(Logo {
                         file: "/icons/canvas.png",

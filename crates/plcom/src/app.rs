@@ -1,6 +1,7 @@
 use crate::{
     error_template::{AppError, ErrorTemplate},
-    Link, UnderlineLink,pages::*
+    pages::*,
+    Link, UnderlineLink,
 };
 use leptos::*;
 use leptos_meta::*;
@@ -14,6 +15,8 @@ pub fn App() -> impl IntoView {
     let formatter = |text| format!("{text} — Philippe Loctaux");
 
     view! {
+        <Html lang="en"/>
+
         <Stylesheet id="leptos" href="/pkg/plcom.css"/>
 
         // sets the document title
@@ -66,6 +69,3 @@ pub fn App() -> impl IntoView {
         </Router>
     }
 }
-
-
-

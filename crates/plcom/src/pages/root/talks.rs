@@ -29,7 +29,7 @@ fn Talk(#[prop(into)] talk: MaybeSignal<Talk>) -> impl IntoView {
     view! {
         <div class=tw_join!("rounded-2xl", "w-full", "bg-teal-950", "p-6")>
 
-            <h3 class=tw_join!("text-xl", "font-semibold", "mb-4")>{talk.get().title}</h3>
+            <div class=tw_join!("text-xl", "font-semibold", "mb-4")>{talk.get().title}</div>
 
             <div class=tw_join!("flex")>
                 <div class=tw_join!(

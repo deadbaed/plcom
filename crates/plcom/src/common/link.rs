@@ -59,6 +59,7 @@ pub fn ButtonLink(
         <a
             href=link.get().uri.to_string()
             {..attributes}
+            aria-label=link.get().label
             class=tw_join!(
                 "inline-flex", "bg-sky-900", "hover:bg-sky-700", "transition-all", "duration-200",
                 "text-white", "font-bold", "py-2", "px-4", "rounded-xl", "items-center"
@@ -96,4 +97,3 @@ pub fn OutlineButtonLink(
         </a>
     }
 }
-

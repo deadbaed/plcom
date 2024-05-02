@@ -22,7 +22,7 @@ pub fn Www() -> impl IntoView {
             icon: Icon::Mastodon,
         },
         Www {
-            link: Link::new("https://github.com/x4m3", "GitHub"),
+            link: Link::new("https://github.com/deadbaed", "GitHub"),
             icon: Icon::Github,
         },
         Www {

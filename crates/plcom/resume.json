@@ -290,7 +290,7 @@
                 "libgit2"
             ],
             "link": {
-                "uri": "https://github.com/x4m3/pass4thewin",
+                "uri": "https://github.com/deadbaed/pass4thewin",
                 "label": "Source code",
                 "notAvailable": false
             }
@@ -362,7 +362,7 @@
                 "Docker"
             ],
             "link": {
-                "uri": "https://github.com/x4m3/epitok",
+                "uri": "https://github.com/deadbaed/epitok",
                 "label": "Source code",
                 "notAvailable": false
             }
@@ -389,7 +389,7 @@
                 "Docker"
             ],
             "link": {
-                "uri": "https://github.com/x4m3/epi.today",
+                "uri": "https://github.com/deadbaed/epi.today",
                 "label": "Source code",
                 "notAvailable": false
             }

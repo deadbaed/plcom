@@ -1,39 +1,51 @@
-ARG RUST_VERSION=1.74.0
+ARG RUST_VERSION=1.77
+FROM rust:${RUST_VERSION}-bookworm as builder
 
-FROM rust:${RUST_VERSION}-slim-bookworm as builder
+# Install cargo-binstall, which makes it easier to install other
+# cargo extensions like cargo-leptos
+RUN wget https://github.com/cargo-bins/cargo-binstall/releases/latest/download/cargo-binstall-x86_64-unknown-linux-musl.tgz
+RUN tar -xvf cargo-binstall-x86_64-unknown-linux-musl.tgz
+RUN cp cargo-binstall /usr/local/cargo/bin
 
-# tailwind
-WORKDIR /usr/bin/
-ADD https://github.com/tailwindlabs/tailwindcss/releases/download/v3.3.5/tailwindcss-linux-x64 tailwindcss
-RUN chmod +x /usr/bin/tailwindcss
+# Install cargo-leptos
+RUN cargo binstall cargo-leptos -y
 
-# openssl + CA certs
-RUN apt-get update; \
-    apt-get install -y --no-install-recommends ca-certificates pkg-config libssl-dev
+# Add the WASM target
+RUN rustup target add wasm32-unknown-unknown
 
-WORKDIR /usr/src/plcom
-COPY css/ css/
-COPY public/ public/
-COPY templates/ templates/
-COPY src/ src/
-COPY build.rs .
-COPY Cargo.lock .
-COPY Cargo.toml .
-COPY tailwind.config.cjs .
+# Make an /app dir, which everything will eventually live in
+RUN mkdir -p /app
+WORKDIR /app
+COPY . .
 
-# generate wallpapers
-RUN cargo build --bin gen-wallpapers --release
-RUN cargo run --bin gen-wallpapers --release
+# Generate wallpapers metadata
+RUN cargo run -p gen-wallpapers --example cli -- ./public/wallpapers > crates/plcom/wallpapers.json
 
-# build project
-RUN cargo build --bin plcom --release
+# Build the app
+RUN cargo leptos build --release -vv
 
-FROM debian:12-slim
-WORKDIR /usr/share/plcom
-COPY --from=builder /usr/src/plcom/public /usr/share/plcom/public
-COPY --from=builder /usr/src/plcom/target/release/plcom /usr/share/plcom
+FROM debian:bookworm-slim as runtime
+WORKDIR /app
+RUN apt-get update -y \
+  && apt-get install -y --no-install-recommends openssl ca-certificates \
+  && apt-get autoremove -y \
+  && apt-get clean -y \
+  && rm -rf /var/lib/apt/lists/*
 
-ENV ROCKET_CLI_COLORS=0
-ENV ROCKET_ADDRESS=0.0.0.0
+# Copy the server binary to the /app directory
+COPY --from=builder /app/target/release/plcom /app/
+
+# /target/site contains our JS/WASM/CSS, etc.
+COPY --from=builder /app/target/site /app/site
+
+# Copy Cargo.toml if it’s needed at runtime
+COPY --from=builder /app/Cargo.toml /app/
+
+# Set any required env variables and
+ENV RUST_LOG="info"
+ENV LEPTOS_SITE_ADDR="0.0.0.0:8000"
+ENV LEPTOS_SITE_ROOT="site"
 EXPOSE 8000
-ENTRYPOINT ["/usr/share/plcom/plcom"]
+
+# Run the server
+CMD ["/app/plcom"]

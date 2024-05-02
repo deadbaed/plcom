@@ -1,0 +1,428 @@
+{
+    "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+    "basics": {
+        "name": "Philippe Loctaux",
+        "url": "https://philippeloctaux.com",
+        "label": "Developer of all sorts",
+        "email": "www@philippeloctaux.com",
+        "location": {
+            "countryCode": "FR",
+            "city": "Rennes"
+        }
+    },
+    "languages": [
+        {
+            "language": "French"
+        },
+        {
+            "language": "English"
+        },
+        {
+            "language": "Russian"
+        }
+    ],
+    "education": [
+        {
+            "institution": "Epitech",
+            "studyType": "Master",
+            "area": "Computer software engineering",
+            "startDate": "2018-10",
+            "endDate": "2023-08",
+            "logo": {
+                "file": "/icons/epitech.png",
+                "transparentBackground": true
+            },
+            "courses": [
+                "Many small projects in C to learn a technical concept during first year",
+                "my_teams: Microsoft Teams clone in C (protocol design, networking, server, client)",
+                "Arcade: Small gaming platform capable of loading dynamic libraries with a high abstraction level in C++",
+                "Epicture: Android client in Kotlin of the Imgur image service (OAuth2, listing, viewing, uploading images)"
+            ]
+        },
+        {
+            "institution": "UQAC",
+            "studyType": "Year abroad",
+            "area": "Computer software engineering",
+            "startDate": "2021-09",
+            "endDate": "2022-05",
+            "logo": {
+                "file": "/icons/uqac.png",
+                "transparentBackground": true
+            },
+            "courses": [
+                "Android app development",
+                "Object Oriented Programming",
+                "Software engineering",
+                "Entreprise application development"
+            ]
+        }
+    ],
+    "work": [
+        {
+            "name": "Rubycat",
+            "position": "Software engineer",
+            "startDate": "2023-06",
+            "logo": {
+                "file": "/icons/rubycat.png",
+                "transparentBackground": true
+            },
+            "description": "Maintenance and improvement of PROVE IT, a Privileged Access Management software platform.",
+            "highlights": [
+                "Rewrote an internal component in Rust, making it faster and simpler to use for the development team",
+                "Bug investigation and fixes",
+                "Public speaking about the product"
+            ],
+            "technologies": [
+                "Rust",
+                "Angular",
+                "Python",
+                "PostgreSQL",
+                "GitLab"
+            ],
+            "link": {
+                "uri": "https://rubycat.eu",
+                "label": "Company website",
+                "notAvailable": false
+            }
+        },
+        {
+            "name": "Acklio",
+            "position": "Rust developer",
+            "startDate": "2023-03",
+            "endDate": "2023-05",
+            "logo": {
+                "file": "/icons/acklio.png",
+                "transparentBackground": true
+            },
+            "description": "The first usage of the SCHC framework (RFC 8724) on Rust!",
+            "highlights": [
+                "Creation of Rust bindings of a C library implementing the SCHC framework",
+                "Demonstration of SCHC with applications in Rust on x86 platform",
+                "Proof of concept usage of embedded STM32 controllers exclusively in Rust",
+                "Transmission of knowledge to the technical team"
+            ],
+            "technologies": [
+                "Rust",
+                "SCHC",
+                "STM32 controllers",
+                "LoRa",
+                "LoRaWAN"
+            ],
+            "link": {
+                "uri": "https://ackl.io",
+                "label": "Company website",
+                "notAvailable": false
+            }
+        },
+        {
+            "name": "Vélorail du Kreiz Breizh",
+            "position": "Freelance developer",
+            "startDate": "2021-08",
+            "endDate": "2022-04",
+            "logo": {
+                "file": "/icons/velorail.png",
+                "transparentBackground": true
+            },
+            "description": "Creation of an online booking platform focused on the tourist activity of rail biking (vélorail).",
+            "highlights": [
+                "Design, UX, booking and payment flow for customers",
+                "Dashboard for managers with calendar view, manual bookings, slots management",
+                "Ability to generate invoices, booking recaps for managers",
+                "Sending emails to customers and managers about bookings",
+                "Online deployment, maintenance of the service",
+                "5 months after the initial deployment, 43% of the bookings were made with the online platform",
+                "Focus to use the least amount of external services, resulting in implementation of a invoice generation service, an image-based captcha, and a templating system for transactional emails"
+            ],
+            "technologies": [
+                "Angular",
+                "NestJS",
+                "GraphQL",
+                "Rust",
+                "Stripe",
+                "Amazon SES",
+                "GitLab CI/CD"
+            ],
+            "link": {
+                "uri": "https://resa.velorail.bzh",
+                "label": "Booking platform",
+                "notAvailable": true
+            }
+        },
+        {
+            "name": "Yaakadev",
+            "position": "Full-Stack developer",
+            "startDate": "2021-04",
+            "endDate": "2021-07",
+            "logo": {
+                "file": "/icons/yaakadev.png",
+                "transparentBackground": false
+            },
+            "description": "Design, development, deployment and maintenance of many projects for various clients.",
+            "highlights": [
+                "Admin dashboard of a local merchants solution",
+                "Calendar planning application with filtering and custom views for a SaaS for the agency",
+                "Intranet to upload and download documents for a client"
+            ],
+            "technologies": [
+                "NodeJS",
+                "ExpressJS",
+                "Angular",
+                "MongoDB",
+                "CI/CD"
+            ],
+            "link": {
+                "uri": "https://yaakadev.com",
+                "label": "Agency website",
+                "notAvailable": false
+            }
+        },
+        {
+            "name": "Epitech",
+            "position": "Teaching assistant",
+            "startDate": "2020-02",
+            "endDate": "2021-03",
+            "logo": {
+                "file": "/icons/epitech.png",
+                "transparentBackground": true
+            },
+            "description": "Pedagogical supervision of three classes of students, conducting educational activites throughout the school year.",
+            "highlights": [
+                "Start of projects",
+                "Technical help and guidance",
+                "Proctoring exams",
+                "Grading students on their work"
+            ],
+            "technologies": [
+                "C",
+                "C++",
+                "Haskell",
+                "Rust",
+                "Web and mobile development"
+            ],
+            "link": {
+                "uri": "https://www.epitech.eu/ecole-informatique-rennes",
+                "label": "School",
+                "notAvailable": false
+            }
+        },
+        {
+            "name": "Ubiscale",
+            "position": "Embedded developer",
+            "startDate": "2019-08",
+            "endDate": "2019-12",
+            "logo": {
+                "file": "/icons/ubiscale.png",
+                "transparentBackground": true
+            },
+            "description": "Creation of a home Wifi gateway for a commercial IoT object.",
+            "highlights": [
+                "Research, reverse engineering of existing products",
+                "Design and implementation"
+            ],
+            "technologies": [
+                "C on a ESP8266 controller",
+                "Wi-Fi",
+                "Bluetooth"
+            ],
+            "link": {
+                "uri": "https://ubiscale.com",
+                "label": "Company website",
+                "notAvailable": false
+            }
+        }
+    ],
+    "projects": [
+        {
+            "name": "ezidam",
+            "description": "Identity and Access Management system",
+            "presentation": [
+                "A simple identity and access management system for SMEs or personal use.",
+                "Low maintenance required, easy to deploy and to backup."
+            ],
+            "highlights": [
+                "Users management",
+                "Roles management",
+                "Assign users to roles and the other way around",
+                "OAuth2 / OIDC applications (code flow)",
+                "Multi-Factor Authentication (TOTP)",
+                "Password reset (via email or backup token)",
+                "Simple administration panel",
+                "Good security measures for users and administrators"
+            ],
+            "keywords": [
+                "Rust",
+                "SQLite",
+                "OAuth2 / OIDC",
+                "TOTP",
+                "SMTP",
+                "Docker"
+            ],
+            "startDate": "2023-01",
+            "endDate": "2023-07",
+            "logo": {
+                "file": "/icons/ezidam.png",
+                "transparentBackground": true
+            },
+            "link": null
+        },
+        {
+            "name": "pass4thewin",
+            "description": "Password manager",
+            "startDate": "2020-11",
+            "endDate": "2021-01",
+            "presentation": [
+                "Port of passwordstore, the standard unix password manager on the Windows platform.",
+                "Warning! Unfinished command line application, may cause data corruption when using existing passwords."
+            ],
+            "highlights": [
+                "Creation of a store",
+                "List secrets",
+                "Decrypt secret",
+                "Insert or generate secrets",
+                "Edit existing secrets",
+                "Synchronisation with git",
+                "TOTP support"
+            ],
+            "keywords": [
+                "Windows",
+                "Rust",
+                "OpenPGP",
+                "libgit2"
+            ],
+            "link": {
+                "uri": "https://github.com/x4m3/pass4thewin",
+                "label": "Source code",
+                "notAvailable": false
+            }
+        },
+        {
+            "name": "NaviaRent",
+            "description": "Epitech Innovative Project",
+            "startDate": "2020-09",
+            "endDate": "2023-01",
+            "presentation": [
+                "A B2B platform helping rentals of standup paddle boards."
+            ],
+            "highlights": [
+                "DevOps of all software in the NaviaRent stack",
+                "Creation of the iOS application",
+                "Contributions to the Android application",
+                "Contributions to the backend server",
+                "Creation and contributions to the web client",
+                "Server administration, backups",
+                "Meetings managements spread across 3 timezones",
+                "Technical writing",
+                "Public presentations"
+            ],
+            "keywords": [
+                "NodeJS",
+                "Angular",
+                "Kotlin",
+                "SwiftUI",
+                "Docker",
+                "GitLab CI/CD",
+                "Raspberry Pi",
+                "ESP32"
+            ],
+            "logo": {
+                "file": "/icons/naviarent.png",
+                "transparentBackground": false
+            },
+            "image": {
+                "file": "/images/naviarent.jpg",
+                "position": "right"
+            },
+            "link": {
+                "uri": "https://naviarent.fr",
+                "label": "Website",
+                "notAvailable": true
+            }
+        },
+        {
+            "name": "epitok",
+            "description": "Presence system at Epitech",
+            "startDate": "2020-06",
+            "endDate": "2020-09",
+            "presentation": [
+                "A library and web client to simplify students presence at Epitech.",
+                "Students are handed a piece of paper with a 6 digits number (called a \"token\") to verify their presence at school events.",
+                "Teachers use epitok to scan student cards with QR codes on them instead of printing and handing tokens to students."
+            ],
+            "highlights": [
+                "Reverse engineering of a partially documented web API",
+                "Design, conception",
+                "User experience",
+                "Improvements based of usage of the application"
+            ],
+            "keywords": [
+                "Rust",
+                "HTML",
+                "Bootstrap",
+                "jQuery",
+                "Docker"
+            ],
+            "link": {
+                "uri": "https://github.com/x4m3/epitok",
+                "label": "Source code",
+                "notAvailable": false
+            }
+        },
+        {
+            "name": "epi.today",
+            "description": "Calendar for Epitech",
+            "startDate": "2019-11",
+            "endDate": "2019-02",
+            "presentation": [
+                "A viewer of the Epitech intranet calendar.",
+                "Students and teachers glance at their planning without the need to go on the school's intranet."
+            ],
+            "highlights": [
+                "Reverse engineering of a web api",
+                "Design a web page",
+                "Mobile UX",
+                "Deployment on a server"
+            ],
+            "keywords": [
+                "TypeScript",
+                "HTML",
+                "Bootstrap",
+                "Docker"
+            ],
+            "link": {
+                "uri": "https://github.com/x4m3/epi.today",
+                "label": "Source code",
+                "notAvailable": false
+            }
+        },
+        {
+            "name": "canvas.place",
+            "description": "Timelapse",
+            "startDate": "2017-04",
+            "endDate": "2020-01",
+            "presentation": [
+                "canvas.place is a shared place to express creativity.",
+                "People from all over the world share one single canvas to paint on.",
+                "I created and maintained a timelapse of the virtual canvas."
+            ],
+            "highlights": [],
+            "keywords": [
+                "FFmpeg",
+                "Shell scripting",
+                "nginx"
+            ],
+            "logo": {
+                "file": "/icons/canvas.png",
+                "transparentBackground": false
+            },
+            "image": {
+                "file": "/images/canvas.png",
+                "position": "left"
+            },
+            "link": {
+                "uri": "https://timelapse.canvas.place",
+                "label": "Website",
+                "notAvailable": false
+            }
+        }
+    ]
+}

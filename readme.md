@@ -6,7 +6,7 @@ http://philippeloctaux.com
 
 ## tech
 
-- https://rocket.rs
+- https://leptos.dev
 - https://tailwindcss.com
 
 ## colors
@@ -16,9 +16,10 @@ http://philippeloctaux.com
 ## wallpapers
 
 1. place **JPEG** files in `public/wallpapers` and make sure they have exif data (GPS + date)
-2. run `cargo run --bin gen-wallpapers` to generate wallpaper metadata
+2. run `cargo run -p gen-wallpapers --example cli -- ./public/wallpapers > ./crates/plcom/wallpapers.json` to generate wallpaper metadata
 
 ## icons
 
 - https://simpleicons.org for brand icons
 - https://heroicons.com for the rest
+

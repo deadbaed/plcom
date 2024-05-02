@@ -20,7 +20,7 @@ fn main() {
 
     let metadata = MetadataList::process_folder(dir, true);
 
-    let json = match metadata.to_json() {
+    let json = match metadata.to_pretty_json() {
         Ok(json) => json,
         Err(e) => {
             eprintln!("failed to serialize json: {e}");

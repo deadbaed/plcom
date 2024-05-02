@@ -1,11 +1,10 @@
-/public/style.css
+target/
+wallpapers.json
 
-/target/
-
-/.idea/
-/.vscode/
+.idea/
+.vscode/
 .DS_Store
 .gitea/
-/readme.md
-/Dockerfile
-/.dockerignore
+readme.md
+Dockerfile
+.dockerignore

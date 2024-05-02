@@ -1,26 +1,15 @@
 [workspace]
-members = ["crates/gen-wallpapers"]
+resolver = "2"
+members = ["crates/gen-wallpapers", "crates/plcom"]
 
-[package]
-name = "plcom"
-version = "0.1.0"
-edition = "2021"
-publish = false
-default-run = "plcom"
+[workspace.dependencies]
+serde = "1.0"
 
-[[bin]]
-name = "plcom"
-path = "src/main.rs"
+# Defines a size-optimized profile for the WASM bundle in release mode
+[profile.wasm-release]
+inherits = "release"
+opt-level = 'z'
+lto = true
+codegen-units = 1
+panic = "abort"
 
-[[bin]]
-name = "gen-wallpapers"
-path = "src/gen-wallpapers.rs"
-
-[dependencies]
-rocket = "0.5"
-rocket_async_compression = "0.5"
-askama = { version = "0.12.1", features = ["with-rocket"] }
-askama_rocket = "0.12.0"
-chrono = "0.4.31"
-minify-html = "0.11.1"
-nanorand = { version = "0.7.0", features = ["chacha"] }

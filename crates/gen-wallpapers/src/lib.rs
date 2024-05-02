@@ -165,8 +165,8 @@ impl MetadataList {
         Self(files)
     }
 
-    pub fn to_json(&self) -> serde_json::Result<String> {
-        serde_json::to_string(&self.0)
+    pub fn to_pretty_json(&self) -> serde_json::Result<String> {
+        serde_json::to_string_pretty(&self.0)
     }
 }
 

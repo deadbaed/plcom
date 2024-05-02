@@ -1,11 +1,12 @@
-# wallpapers
-/src/wallpapers.rs
-
 # built css
 /public/style.css
 
+# wallpapers
+wallpapers.json
+
 # build output
-/target
+target/
+pkg
 
 # environment variables
 .env
@@ -16,3 +17,6 @@
 
 # ide
 .idea/
+
+# rustfmt
+**/*.rs.bk

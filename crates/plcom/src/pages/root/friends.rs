@@ -113,7 +113,7 @@ pub fn Friends() -> impl IntoView {
         Friend::new("Lyra", "Messier", "https://lyramsr.co"),
         Friend::new("Peter", "Soboyejo", "https://twitter.com/pxtvr"),
         Friend::nick("Millomaker", "https://youtube.com/millomaker"),
-        Friend::new("Alexandre", "Wagner", "https://wagnerwave.com"),
+        Friend::new("Alexandre", "Wagner", "https://dev4people.fr"),
         Friend::new("Aidan", "Follestad", "https://af.codes"),
         Friend::new("Victor", "Simon", "https://simonvictor.com"),
     ];

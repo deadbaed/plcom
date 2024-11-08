@@ -1,38 +1,44 @@
-#[cfg(feature = "ssr")]
-#[tokio::main]
-async fn main() {
-    use axum::Router;
-    use leptos::*;
-    use leptos_axum::{generate_route_list, LeptosRoutes};
-    use plcom::app::*;
-    use plcom::fileserv::file_and_error_handler;
-
-    // Setting get_configuration(None) means we'll be using cargo-leptos's env values
-    // For deployment these variables are:
-    // <https://github.com/leptos-rs/start-axum#executing-a-server-on-a-remote-machine-without-the-toolchain>
-    // Alternately a file can be specified such as Some("Cargo.toml")
-    // The file would need to be included with the executable when moved to deployment
-    let conf = get_configuration(None).await.unwrap();
-    let leptos_options = conf.leptos_options;
-    let addr = leptos_options.site_addr;
-    let routes = generate_route_list(App);
-
-    // build our application with a route
-    let app = Router::new()
-        .leptos_routes(&leptos_options, routes, App)
-        .fallback(file_and_error_handler)
-        .with_state(leptos_options);
-
-    let listener = tokio::net::TcpListener::bind(&addr).await.unwrap();
-    logging::log!("listening on http://{}", &addr);
-    axum::serve(listener, app.into_make_service())
-        .await
-        .unwrap();
+mod prelude {
+    pub use crate::common::icon::Icon;
+    pub use crate::common::link::*;
+    pub use crate::common::Date;
+    pub use crate::views::*;
+    pub use leptos::prelude::*;
+    pub use rocket::uri;
+    pub use tailwind_fuse::tw_join;
 }
 
-#[cfg(not(feature = "ssr"))]
-pub fn main() {
-    // no client-side main function
-    // unless we want this to work with e.g., Trunk for a purely client-side app
-    // see lib.rs for hydration function instead
+mod cache;
+mod common;
+mod pages;
+mod views;
+
+use pages::*;
+
+#[rocket::launch]
+fn rocket() -> _ {
+    let server = rocket::build()
+        .mount("/", rocket::fs::FileServer::from("public"))
+        .mount(
+            "/",
+            rocket::routes![root_route, email_route, wallpapers_route],
+        )
+        .register("/", rocket::catchers![not_found]);
+
+    if cfg!(debug_assertions) {
+        server
+    } else {
+        server
+            .attach(
+                rocket_async_compression::CachedCompression::path_suffix_fairing(vec![
+                    // Code
+                    ".js".into(),
+                    ".css".into(),
+                    // Documents
+                    ".pdf".into(),
+                    ".txt".into(),
+                ]),
+            )
+            .attach(cache::CacheControl::default())
+    }
 }

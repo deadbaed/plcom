@@ -1,7 +1,6 @@
-use tailwind_fuse::*;
-use leptos::*;
-use crate::common::Date;
 use crate::common::resume::Logo;
+use crate::prelude::*;
+use tailwind_fuse::*;
 
 #[derive(TwClass, Clone, Copy, PartialEq)]
 #[tw(class = r#"h-16 w-16 rounded-xl"#)]
@@ -17,24 +16,17 @@ enum ImageBackground {
     Plain,
 }
 
-#[component]
-fn ExperienceLogo(
-    #[prop(into)] image: MaybeSignal<String>,
-    /// Name of the experience, used in the alt of the image
-    #[prop(into)]
-    name: MaybeSignal<String>,
-    #[prop(into, optional)] background: MaybeSignal<ImageBackground>,
-    #[prop(into, optional)] class: MaybeSignal<String>,
-    #[prop(attrs)] attributes: Vec<(&'static str, Attribute)>,
+fn experience_logo(
+    image: String,
+    // Name of the experience, used in the alt of the image
+    name: String,
+    background: ImageBackground,
+    class: String,
 ) -> impl IntoView {
-    let class = create_memo(move |_| {
-        let background = background.get();
-        let logo = LogoOptions { background };
-        logo.with_class(class.get())
-    });
-    let alt = format!("{} logo", name.get());
+    let class = LogoOptions { background }.with_class(class);
+    let alt = format!("{} logo", name);
 
-    view! { <img {..attributes} loading="lazy" src=image.get() alt=alt class=class/> }
+    view! { <img loading="lazy" src=image alt=alt class=class/> }
 }
 
 struct ExperienceLogo {
@@ -50,19 +42,17 @@ pub struct ExperienceHeader {
     logo: Option<ExperienceLogo>,
 }
 
-impl IntoView for ExperienceHeader {
-    fn into_view(self) -> View {
+impl IntoAny for ExperienceHeader {
+    fn into_any(self) -> AnyView {
         let logo = match self.logo {
-            Some(logo) => view! {
-                <ExperienceLogo
-                    image=logo.file
-                    name=self.name.clone()
-                    background=logo.options.map(|o| o.background).unwrap_or_default()
-                    class=tw_join!("mr-4")
-                />
-            }
-            .into_view(),
-            None => view! {}.into_view(),
+            Some(logo) => experience_logo(
+                logo.file,
+                self.name.clone(),
+                logo.options.map(|o| o.background).unwrap_or_default(),
+                tw_join!("mr-4"),
+            )
+            .into_any(),
+            None => ().into_any(),
         };
 
         let date = match self.date_end {
@@ -87,7 +77,7 @@ impl IntoView for ExperienceHeader {
                 )>{self.description}</p>
             </div>
         }
-        .into_view()
+        .into_any()
     }
 }
 

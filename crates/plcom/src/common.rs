@@ -1,11 +1,6 @@
 pub mod icon;
 pub mod link;
 
-pub fn get_year() -> i32 {
-    use chrono::Datelike;
-    chrono::Utc::now().year()
-}
-
 #[derive(Clone, PartialEq)]
 pub struct Date {
     pub year: u32,
@@ -14,7 +9,22 @@ pub struct Date {
 
 impl std::fmt::Display for Date {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{}-{:02}", self.year, self.month)
+        let month = match self.month {
+            1 => "January",
+            2 => "Februrary",
+            3 => "March",
+            4 => "April",
+            5 => "May",
+            6 => "June",
+            7 => "July",
+            8 => "August",
+            9 => "September",
+            10 => "October",
+            11 => "November",
+            12 => "December",
+            _ => panic!("wtf not a month"),
+        };
+        write!(f, "{month} {}", self.year)
     }
 }
 
@@ -65,18 +75,14 @@ pub mod resume {
         pub not_available: bool,
     }
 
-    use crate::{Link, OutlineButtonLink};
-    use http::Uri;
-    use leptos::*;
+    use crate::common::link::{Link, outline_button_link};
+    use leptos::prelude::*;
     use tailwind_fuse::tw_join;
-    impl IntoView for ResumeLink {
-        fn into_view(self) -> View {
+    impl IntoAny for ResumeLink {
+        fn into_any(self) -> AnyView {
             if !self.not_available {
-                let link = Link {
-                    label: self.label.into(),
-                    uri: Uri::from_static(self.uri),
-                };
-                view! { <OutlineButtonLink link=link/> }.into_view()
+                let link = Link::parse(self.uri, self.label);
+                outline_button_link(link).into_any()
             } else {
                 view! {
                     <span class=tw_join!(
@@ -85,7 +91,7 @@ pub mod resume {
                         "items-center"
                     )>{self.label}</span>
                 }
-            .into_view()
+                .into_any()
             }
         }
     }
@@ -120,6 +126,12 @@ pub mod wallpapers {
         pub longitude: f32,
     }
 
+    impl std::fmt::Display for Gps {
+        fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+            write!(f, "[{}, {}]", self.latitude, self.longitude)
+        }
+    }
+
     #[derive(Clone, Copy)]
     pub struct Location {
         pub precise: &'static str,
@@ -128,8 +140,19 @@ pub mod wallpapers {
 
     impl Wallpaper {
         pub fn random() -> Option<&'static Wallpaper> {
-            let random_value = rand::Rng::gen_range(&mut rand::thread_rng(), 0..WALLPAPERS.len());
-            WALLPAPERS.get(random_value)
+            use nanorand::{ChaCha20, Rng};
+            use std::ops::Range;
+
+            let range = Range {
+                start: 0,
+                end: WALLPAPERS.len(),
+            };
+
+            WALLPAPERS.get(ChaCha20::new().generate_range(range))
+        }
+
+        pub fn find(filename: &str) -> Option<&'static Wallpaper> {
+            WALLPAPERS.iter().find(|w| w.filename.contains(filename))
         }
     }
 

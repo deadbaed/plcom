@@ -1,8 +1,9 @@
-use crate::prelude::*;
 use super::experience::*;
+use crate::common::resume::{self, Education};
+use crate::prelude::*;
 
-impl IntoView for Education {
-    fn into_view(self) -> View {
+impl IntoAny for Education {
+    fn into_any(self) -> AnyView {
         let subtitle = format!("{} in {}", self.study_type, self.area);
         view! {
             <div class=tw_join!(
@@ -15,7 +16,7 @@ impl IntoView for Education {
                     self.institution,
                     &subtitle,
                     self.logo.as_ref(),
-                )}
+                ).into_any()}
                 <div class=tw_join!("space-y-2")>
                     <ul class=tw_join!(
                         "list-disc", "mt-6"
@@ -31,12 +32,12 @@ impl IntoView for Education {
                 </div>
 
             </div>
-        }.into_view()
+        }
+        .into_any()
     }
 }
 
-#[component]
-pub fn EducationList() -> impl IntoView {
+pub fn education_list() -> impl IntoView {
     view! {
         <div>
 
@@ -44,8 +45,7 @@ pub fn EducationList() -> impl IntoView {
 
             <div class=tw_join!(
                 "mt-4", "grid", "grid-cols-1", "md:grid-cols-2", "gap-6", "place-content-center"
-            )>{resume::EDUCATION.collect_view()}</div>
+            )>{resume::EDUCATION.map(|education| education.into_any()).collect_view()}</div>
         </div>
     }
 }
-

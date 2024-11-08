@@ -1,4 +1,5 @@
 use crate::prelude::*;
+use rocket::http::uri::Absolute;
 
 #[derive(Clone, PartialEq)]
 struct Name {
@@ -51,21 +52,21 @@ impl std::fmt::Display for Name {
 #[derive(Clone, PartialEq)]
 struct Friend {
     name: Name,
-    uri: Uri,
+    uri: Absolute<'static>,
 }
 
 impl Friend {
-    pub fn nick(nick: impl Into<String>, uri: &'static str) -> Self {
+    pub fn nick(nick: impl Into<String>, uri: Absolute<'static>) -> Self {
         Self {
             name: Name::nick(nick),
-            uri: Uri::from_static(uri),
+            uri,
         }
     }
 
-    pub fn new(first: impl Into<String>, last: impl Into<String>, uri: &'static str) -> Self {
+    pub fn new(first: impl Into<String>, last: impl Into<String>, uri: Absolute<'static>) -> Self {
         Self {
             name: Name::new(first, last),
-            uri: Uri::from_static(uri),
+            uri,
         }
     }
 
@@ -77,45 +78,45 @@ impl Friend {
     }
 }
 
-#[component]
-fn Friend(#[prop(into)] friend: MaybeSignal<Friend>) -> impl IntoView {
-    view! {
-        <a
-            href=friend.get().uri.to_string()
-            target="_blank"
+impl IntoAny for Friend {
+    fn into_any(self) -> AnyView {
+        view! {
+            <a
+            href=self.uri.to_string()
             class=tw_join!(
                 "hover:bg-gray-500", "transition-all", "duration-200", "flex", "items-center",
                 "rounded-lg", "p-2"
             )
-        >
+            >
 
             <span class=tw_join!(
                 "rounded-full", "flex-shrink-0", "mr-4", "w-10", "h-10", "bg-sky-900", "text-white",
                 "flex", "items-center", "justify-center", "text-lg", "font-medium"
-            )>{friend.get().name.initials()}</span>
+            )>{self.name.initials()}</span>
             <div>
-                <p class=tw_join!("font-bold")>{friend.get().name.to_string()}</p>
-                <p>{friend.get().domain_name()}</p>
-            </div>
-        </a>
+            <p class=tw_join!("font-bold")>{self.name.to_string()}</p>
+                <p>{self.domain_name()}</p>
+                </div>
+                </a>
+        }
+        .into_any()
     }
 }
 
-#[component]
-pub fn Friends() -> impl IntoView {
+pub fn friends() -> impl IntoView {
     let friends = [
-        Friend::new("Paolo", "Rotolo", "https://rotolo.dev"),
-        Friend::new("Polly", "Bishop", "https://github.com/itspolly"),
-        Friend::new("Ayden", "Panhuyzen", "https://ayden.dev"),
-        Friend::new("Corbin", "Crutchley", "https://crutchcorn.dev"),
-        Friend::new("James", "Fenn", "https://jfenn.me"),
-        Friend::new("Alex", "Dueppen", "https://ajd.sh"),
-        Friend::new("Lyra", "Messier", "https://lyramsr.co"),
-        Friend::new("Peter", "Soboyejo", "https://twitter.com/pxtvr"),
-        Friend::nick("Millomaker", "https://youtube.com/millomaker"),
-        Friend::new("Alexandre", "Wagner", "https://dev4people.fr"),
-        Friend::new("Aidan", "Follestad", "https://af.codes"),
-        Friend::new("Victor", "Simon", "https://simonvictor.com"),
+        Friend::new("Paolo", "Rotolo", uri!("https://rotolo.dev")),
+        Friend::new("Polly", "Bishop", uri!("https://github.com/itspolly")),
+        Friend::new("Ayden", "Panhuyzen", uri!("https://ayden.dev")),
+        Friend::new("Corbin", "Crutchley", uri!("https://crutchcorn.dev")),
+        Friend::new("James", "Fenn", uri!("https://jfenn.me")),
+        Friend::new("Alex", "Dueppen", uri!("https://ajd.sh")),
+        Friend::new("Lyra", "Messier", uri!("https://lyramsr.co")),
+        Friend::new("Peter", "Soboyejo", uri!("https://twitter.com/pxtvr")),
+        Friend::nick("Millomaker", uri!("https://youtube.com/millomaker")),
+        Friend::new("Alexandre", "Wagner", uri!("https://dev4people.fr")),
+        Friend::new("Aidan", "Follestad", uri!("https://af.codes")),
+        Friend::new("Victor", "Simon", uri!("https://simonvictor.com")),
     ];
 
     view! {
@@ -129,10 +130,10 @@ pub fn Friends() -> impl IntoView {
             )>
                 {friends
                     .into_iter()
-                    .map(|f| {
+                    .map(|friend| {
                         view! {
                             <li class=tw_join!("py-2")>
-                                <Friend friend=f/>
+                            {friend.into_any()}
                             </li>
                         }
                     })

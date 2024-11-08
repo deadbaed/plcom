@@ -1,38 +1,35 @@
-use crate::prelude::*;
-
-mod hero;
-mod www;
+mod education;
 mod experience;
+mod friends;
+mod hero;
 mod jobs;
 mod projects;
-mod education;
 mod talks;
-mod friends;
+mod www;
 
-#[component]
-pub fn RootPage() -> impl IntoView {
-    let random_wallpaper = Wallpaper::random();
+use crate::common::wallpapers::Wallpaper;
+use crate::prelude::*;
 
+pub fn root_page(wallpaper: Option<&'static Wallpaper>) -> impl IntoAny {
     view! {
-        <Title text="Hello"/>
-        <hero::Hero wallpaper=random_wallpaper></hero::Hero>
+        {hero::hero(wallpaper).into_any()}
 
         <div class=tw_join!("container", "mx-auto", "px-4", "md:px-8", "lg:px-16", "py-16")>
-            <Whoami/>
+            {whoami}
             <div class=tw_join!("my-16", "space-y-16", "md:space-y-32")>
-                <www::Www></www::Www>
-                <jobs::Jobs></jobs::Jobs>
-                <projects::Projects></projects::Projects>
-                <education::EducationList></education::EducationList>
-                <talks::Talks></talks::Talks>
-                <friends::Friends></friends::Friends>
+                {www::list().into_any()}
+                {jobs::jobs().into_any()}
+                {projects::projects().into_any()}
+                {education::education_list().into_any()}
+                {talks::talks().into_any()}
+                {friends::friends().into_any()}
             </div>
         </div>
     }
+    .into_any()
 }
 
-#[component]
-fn Whoami() -> impl IntoView {
+fn whoami() -> impl IntoView {
     view! {
         <div class=tw_join!("md:flex", "md:flex-row-reverse", "items-center")>
             <div class=tw_join!("md:w-1/2", "mb-4", "md:mb-0")>

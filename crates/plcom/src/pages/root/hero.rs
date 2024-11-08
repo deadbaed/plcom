@@ -1,7 +1,7 @@
+use crate::common::wallpapers::Wallpaper;
 use crate::prelude::*;
 
-#[component]
-fn WallpaperInfo(#[prop(into)] wallpaper: &'static Wallpaper) -> impl IntoView {
+fn wallpaper_info(wallpaper: &'static Wallpaper) -> impl IntoAny {
     view! {
         <div class=tw_join!(
             "absolute", "bottom-3", "sm:bottom-5", "left-2", "sm:left-5", "inline-block",
@@ -14,11 +14,10 @@ fn WallpaperInfo(#[prop(into)] wallpaper: &'static Wallpaper) -> impl IntoView {
                 <div class=tw_join!(
                     "inline-flex", "items-center"
                 )>
-                    {Icon::Map}
+                    {Icon::Map.into_any()}
                     <a
                         class=tw_join!("ml-1", "text-sm", "underline")
                         href="/wallpapers"
-                        target="_blank"
                     >
                         "See more!"
                     </a>
@@ -30,7 +29,7 @@ fn WallpaperInfo(#[prop(into)] wallpaper: &'static Wallpaper) -> impl IntoView {
                 <div class=tw_join!(
                     "inline-flex", "items-center"
                 )>
-                    {Icon::Location}
+                    {Icon::Location.into_any()}
                     <span class=tw_join!(
                         "ml-1", "text-sm"
                     )>
@@ -47,22 +46,21 @@ fn WallpaperInfo(#[prop(into)] wallpaper: &'static Wallpaper) -> impl IntoView {
                 <div class=tw_join!(
                     "inline-flex", "items-center"
                 )>
-                    {Icon::Calendar} <span class=tw_join!("ml-1", "text-sm")>{wallpaper.date}</span>
+                    {Icon::Calendar.into_any()} <span class=tw_join!("ml-1", "text-sm")>{wallpaper.date}</span>
                 </div>
             </div>
 
         </div>
-    }
+    }.into_any()
 }
 
-#[component]
-pub fn Hero(#[prop(into)] wallpaper: Option<&'static Wallpaper>) -> impl IntoView {
+pub fn hero(wallpaper: Option<&'static Wallpaper>) -> impl IntoAny {
     let (wallpaper_info, background_image) = match wallpaper {
         Some(wallpaper) => (
-            view! { <WallpaperInfo wallpaper=wallpaper/> }.into_view(),
+            wallpaper_info(wallpaper).into_any(),
             format!("background-image: url(/wallpapers/{});", wallpaper.filename),
         ),
-        None => (view! {}.into_view(), "".into()),
+        None => (().into_any(), "".to_string()),
     };
 
     view! {

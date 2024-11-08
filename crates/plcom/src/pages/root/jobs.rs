@@ -1,8 +1,14 @@
-use crate::prelude::*;
 use super::experience::*;
+use crate::common::resume::{self, Work};
+use crate::prelude::*;
 
-impl IntoView for Work {
-    fn into_view(self) -> View {
+impl IntoAny for Work {
+    fn into_any(self) -> AnyView {
+        let link = match self.link {
+            Some(link) => link.into_any(),
+            None => ().into_any(),
+        };
+
         view! {
             <div class=tw_join!("w-full", "rounded-2xl", "bg-sky-950")>
 
@@ -16,7 +22,7 @@ impl IntoView for Work {
                         self.name,
                         self.position,
                         Some(&self.logo),
-                    )} <div class=tw_join!("space-y-2")>
+                    ).into_any()} <div class=tw_join!("space-y-2")>
 
                         <p>{self.description}</p>
 
@@ -53,24 +59,22 @@ impl IntoView for Work {
                             </div>
 
                         </div>
-                    </div> {self.link}
+                    </div> {link}
 
                 </div>
             </div>
-        }.into_view()
+        }.into_any()
     }
 }
 
-#[component]
-pub fn Jobs() -> impl IntoView {
+pub fn jobs() -> impl IntoView {
     view! {
         <div>
             <h1 class=tw_join!("text-4xl", "font-bold", "mb-4")>"Professional Experiences"</h1>
 
             <div class=tw_join!(
                 "mt-4", "grid", "grid-cols-1", "sm:grid-cols-2", "gap-4"
-            )>{resume::WORK.collect_view()}</div>
+            )>{resume::WORK.map(|work| work.into_any()).collect_view()}</div>
         </div>
     }
 }
-

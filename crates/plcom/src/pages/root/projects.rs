@@ -1,8 +1,9 @@
-use crate::prelude::*;
 use super::experience::*;
+use crate::common::resume::{self, Project};
+use crate::prelude::*;
 
-impl IntoView for Project {
-    fn into_view(self) -> View {
+impl IntoAny for Project {
+    fn into_any(self) -> AnyView {
         let (css_image_position, css_image_position_corner) = match self.image {
             Some(image) => {
                 let position = match image.position {
@@ -33,6 +34,11 @@ impl IntoView for Project {
             None => ("".into(), "".into()),
         };
 
+        let link = match self.link {
+            Some(link) => link.into_any(),
+            None => ().into_any(),
+        };
+
         view! {
             <div class=tw_join!(
                 "w-full", "rounded-2xl", "bg-pink-950", css_image_position
@@ -47,9 +53,9 @@ impl IntoView for Project {
                             class=css_image_position_corner
                         />
                     }
-                        .into_view()
+                        .into_any()
                 } else {
-                    view! {}.into_view()
+                    ().into_any()
                 }}
                 <div class=tw_join!(
                     "p-6", "justify-between", "h-full"
@@ -61,7 +67,7 @@ impl IntoView for Project {
                         self.name,
                         self.description,
                         self.logo.as_ref(),
-                    )}
+                    ).into_any()}
                     <div class=tw_join!(
                         "space-y-2"
                     )>
@@ -70,7 +76,7 @@ impl IntoView for Project {
                             .presentation
                             .iter()
                             .map(|p| {
-                                view! { <p>{*p}</p> }
+                                view! { <p>{*p}</p> }.into_any()
                             })
                             .collect_view()} <div>
                             <ul class=tw_join!(
@@ -80,7 +86,7 @@ impl IntoView for Project {
                                     .highlights
                                     .iter()
                                     .map(|h| {
-                                        view! { <li class=tw_join!("ml-5")>{*h}</li> }
+                                        view! { <li class=tw_join!("ml-5")>{*h}</li> }.into_any()
                                     })
                                     .collect_view()}
                             </ul>
@@ -99,47 +105,51 @@ impl IntoView for Project {
                                                 "items-center", "rounded-md", "bg-blue-100", "px-2", "py-1",
                                                 "font-medium", "text-blue-700",
                                             )>{*t}</span>
-                                        }
+                                        }.into_any()
                                     })
                                     .collect_view()}
                             </div>
 
                         </div>
-                    </div> {self.link}
+                    </div> {link}
 
                 </div>
             </div>
-        }.into_view()
+        }.into_any()
     }
 }
 
-    type ImageProject = Project;
-    type TextProject = Project;
+type ImageProject = Project;
+type TextProject = Project;
 
-    enum DisplayProject {
-        Text(Box<(TextProject, Option<TextProject>)>),
-        Image(ImageProject)
-    }
+enum DisplayProject {
+    Text(Box<(TextProject, Option<TextProject>)>),
+    Image(ImageProject),
+}
 
-impl IntoView for DisplayProject {
-    fn into_view(self) -> View {
+impl IntoAny for DisplayProject {
+    fn into_any(self) -> AnyView {
         match self {
-            Self::Image(image) => image.into_view(),
+            Self::Image(image) => image.into_any(),
             Self::Text(boxy) => {
                 let (text1, text2) = *boxy;
-            view! {
-                <div class=tw_join!(
-                    "my-4", "grid", "grid-cols-1", "sm:grid-cols-2", "gap-4"
-                )>{text1} {text2}</div>
-            }.into_view()
-
+                let text2 = match text2 {
+                    Some(text2) => text2.into_any(),
+                    None => ().into_any(),
+                };
+                view! {
+                    <div class=tw_join!(
+                        "my-4", "grid", "grid-cols-1", "sm:grid-cols-2", "gap-4"
+                    )>{text1.into_any()} {text2}</div>
+                }
+                .into_any()
             }
+            .into_any(),
         }
     }
 }
 
-#[component]
-pub fn Projects() -> impl IntoView {
+pub fn projects() -> impl IntoView {
     let mut projects = vec![];
     let mut iter = resume::PROJECTS.iter();
 
@@ -148,7 +158,10 @@ pub fn Projects() -> impl IntoView {
             projects.push(DisplayProject::Image(*cur_proj));
         } else {
             let next_text = iter.next();
-            projects.push(DisplayProject::Text(Box::new((*cur_proj, next_text.copied()))));
+            projects.push(DisplayProject::Text(Box::new((
+                *cur_proj,
+                next_text.copied(),
+            ))));
         }
     }
 
@@ -157,7 +170,7 @@ pub fn Projects() -> impl IntoView {
 
             <h1 class=tw_join!("text-4xl", "font-bold", "mb-4")>"Projects"</h1>
 
-            {projects}
+            {projects.into_iter().map(|project| project.into_any()).collect_view()}
         </div>
     }
 }

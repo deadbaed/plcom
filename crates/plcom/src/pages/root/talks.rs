@@ -5,7 +5,7 @@ struct Talk {
     title: String,
     date: Date,
     location: String,
-    link: Link,
+    link: Link<'static>,
 }
 
 impl Talk {
@@ -13,7 +13,7 @@ impl Talk {
         title: impl Into<String>,
         date: Date,
         location: impl Into<String>,
-        link: Link,
+        link: Link<'static>,
     ) -> Self {
         Self {
             title: title.into(),
@@ -24,35 +24,35 @@ impl Talk {
     }
 }
 
-#[component]
-fn Talk(#[prop(into)] talk: MaybeSignal<Talk>) -> impl IntoView {
-    view! {
+impl IntoAny for Talk {
+    fn into_any(self) -> AnyView {
+        view! {
         <div class=tw_join!("rounded-2xl", "w-full", "bg-teal-950", "p-6")>
 
-            <div class=tw_join!("text-xl", "font-semibold", "mb-4")>{talk.get().title}</div>
+            <div class=tw_join!("text-xl", "font-semibold", "mb-4")>{self.title}</div>
 
             <div class=tw_join!("flex")>
                 <div class=tw_join!(
                     "inline-flex", "items-center"
                 )>
-                    {Icon::Calendar}
-                    <span class=tw_join!("ml-2")>{talk.get().date.to_string()}</span>
+                    {Icon::Calendar.into_any()}
+                    <span class=tw_join!("ml-2")>{self.date.to_string()}</span>
                 </div>
             </div>
 
             <div class=tw_join!("flex")>
                 <div class=tw_join!(
                     "inline-flex", "items-center"
-                )>{Icon::Location} <span class=tw_join!("ml-2")>{talk.get().location}</span></div>
+                )>{Icon::Location.into_any()} <span class=tw_join!("ml-2")>{self.location}</span></div>
             </div>
 
-            <OutlineButtonLink link=talk.get().link/>
+            {outline_button_link(self.link).into_any()}
         </div>
+    }.into_any()
     }
 }
 
-#[component]
-pub fn Talks() -> impl IntoView {
+pub fn talks() -> impl IntoAny {
     let talks = [
         Talk::new(
             "Vim",
@@ -61,7 +61,7 @@ pub fn Talks() -> impl IntoView {
                 month: 2,
             },
             "Epitech Rennes",
-            Link::slides("/pub/talks/vim.pdf"),
+            Link::slides(uri!("/pub/talks/vim.pdf").into()),
         ),
         Talk::new(
             "CLion",
@@ -70,7 +70,7 @@ pub fn Talks() -> impl IntoView {
                 month: 3,
             },
             "Epitech Rennes",
-            Link::slides("/pub/talks/clion.pdf"),
+            Link::slides(uri!("/pub/talks/clion.pdf").into()),
         ),
         Talk::new(
             "git & devops 2",
@@ -79,7 +79,7 @@ pub fn Talks() -> impl IntoView {
                 month: 2,
             },
             "Epitech Rennes",
-            Link::slides("/pub/talks/git-devops2.pdf"),
+            Link::slides(uri!("/pub/talks/git-devops2.pdf").into()),
         ),
         Talk::new(
             "pass4thewin",
@@ -88,7 +88,7 @@ pub fn Talks() -> impl IntoView {
                 month: 2,
             },
             "Epitech Rennes",
-            Link::slides("/pub/talks/pass4thewin.pdf"),
+            Link::slides(uri!("/pub/talks/pass4thewin.pdf").into()),
         ),
         Talk::new(
             "git & devops",
@@ -97,7 +97,7 @@ pub fn Talks() -> impl IntoView {
                 month: 5,
             },
             "Epitech Rennes",
-            Link::slides("/pub/talks/git-devops.pdf"),
+            Link::slides(uri!("/pub/talks/git-devops.pdf").into()),
         ),
         Talk::new(
             "git gud",
@@ -106,7 +106,7 @@ pub fn Talks() -> impl IntoView {
                 month: 5,
             },
             "Epitech Rennes",
-            Link::slides("/pub/talks/git-tek.pdf"),
+            Link::slides(uri!("/pub/talks/git-tek.pdf").into()),
         ),
     ];
 
@@ -123,15 +123,9 @@ pub fn Talks() -> impl IntoView {
                 "mt-4", "grid", "grid-cols-1", "sm:grid-cols-2", "lg:grid-cols-3", "gap-6",
                 "place-content-center"
             )>
-                {talks
-                    .into_iter()
-                    .map(|t| {
-                        view! { <Talk talk=t/> }
-                    })
-                    .collect_view()}
+                {talks.into_iter().map(|talk| talk.into_any()).collect_view()}
             </div>
 
         </div>
     }
 }
-

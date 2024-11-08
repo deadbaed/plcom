@@ -4,7 +4,7 @@ use location::Gps;
 use location::Location;
 use location::parse_coordinates;
 
-use exif::{DateTime, Exif, In, Tag};
+use exif::{DateTime, In, Tag};
 use serde::Serialize;
 use std::fs::ReadDir;
 use std::io::BufReader;

@@ -38,12 +38,12 @@ struct Image {
     position: String,
 }
 
-#[derive(Debug, Deserialize)]
+// #[derive(Debug, Deserialize)]
 // TODO: possible implementation: https://www.reddit.com/r/rust/comments/10bab4v/serdejson_how_to_deserialize_and_serialize_an/
-enum ImagePosition {
-    Left,
-    Right,
-}
+// enum ImagePosition {
+//     Left,
+//     Right,
+// }
 
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "camelCase")]

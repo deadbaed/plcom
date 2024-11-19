@@ -1,0 +1,422 @@
+[
+  {
+    "filename": "IMG_2287.jpeg",
+    "date": "2021-09-11",
+    "width": 2048,
+    "height": 1536,
+    "gps": {
+      "latitude": 48.398243,
+      "longitude": -71.04341
+    },
+    "location": {
+      "precise": "Saguenay–Lac-Saint-Jean",
+      "broad": "Québec, Canada"
+    }
+  },
+  {
+    "filename": "IMG_2950.jpeg",
+    "date": "2022-02-26",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 24.82987,
+      "longitude": -80.9947
+    },
+    "location": {
+      "precise": "Florida",
+      "broad": "United States"
+    }
+  },
+  {
+    "filename": "IMG_2879.jpeg",
+    "date": "2022-02-23",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 48.42597,
+      "longitude": -71.05559
+    },
+    "location": {
+      "precise": "Saguenay–Lac-Saint-Jean",
+      "broad": "Québec, Canada"
+    }
+  },
+  {
+    "filename": "IMG_2361.jpeg",
+    "date": "2021-08-27",
+    "width": 2048,
+    "height": 1536,
+    "gps": {
+      "latitude": 48.430798,
+      "longitude": -71.06215
+    },
+    "location": {
+      "precise": "Saguenay–Lac-Saint-Jean",
+      "broad": "Québec, Canada"
+    }
+  },
+  {
+    "filename": "IMG_1395.jpeg",
+    "date": "2024-05-19",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 48.104378,
+      "longitude": 7.07935
+    },
+    "location": {
+      "precise": "Haut-Rhin",
+      "broad": "Grand Est, France métropolitaine, France"
+    }
+  },
+  {
+    "filename": "IMG_1301.jpeg",
+    "date": "2021-12-11",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 48.580082,
+      "longitude": -70.87979
+    },
+    "location": {
+      "precise": "Le Fjord-du-Saguenay",
+      "broad": "Saguenay–Lac-Saint-Jean, Québec, Canada"
+    }
+  },
+  {
+    "filename": "IMG_4359.jpeg",
+    "date": "2022-05-10",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 34.056507,
+      "longitude": -118.236946
+    },
+    "location": {
+      "precise": "Los Angeles County",
+      "broad": "California, United States"
+    }
+  },
+  {
+    "filename": "IMG_0360.jpeg",
+    "date": "2021-10-10",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 45.498695,
+      "longitude": -73.57866
+    },
+    "location": {
+      "precise": "Agglomération de Montréal",
+      "broad": "Montréal (région administrative), Québec, Canada"
+    }
+  },
+  {
+    "filename": "IMG_0946.jpeg",
+    "date": "2021-10-24",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 48.43079,
+      "longitude": -71.062904
+    },
+    "location": {
+      "precise": "Saguenay–Lac-Saint-Jean",
+      "broad": "Québec, Canada"
+    }
+  },
+  {
+    "filename": "IMG_2392.jpeg",
+    "date": "2024-09-10",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 50.08757,
+      "longitude": 14.4074135
+    },
+    "location": {
+      "precise": "Hlavní město Praha",
+      "broad": "Praha, Česko"
+    }
+  },
+  {
+    "filename": "IMG_7469.jpeg",
+    "date": "2023-04-16",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 43.73368,
+      "longitude": 3.5493166
+    },
+    "location": {
+      "precise": "Hérault",
+      "broad": "Occitanie, France métropolitaine, France"
+    }
+  },
+  {
+    "filename": "IMG_1801.jpeg",
+    "date": "2021-12-27",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 40.576057,
+      "longitude": -73.97656
+    },
+    "location": {
+      "precise": "Kings County",
+      "broad": "City of New York, New York, United States"
+    }
+  },
+  {
+    "filename": "IMG_9011.jpeg",
+    "date": "2023-09-16",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 38.71581,
+      "longitude": -9.129289
+    },
+    "location": {
+      "precise": "Lisboa",
+      "broad": "Portugal"
+    }
+  },
+  {
+    "filename": "IMG_3076.jpeg",
+    "date": "2024-11-02",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 45.977516,
+      "longitude": 5.4183946
+    },
+    "location": {
+      "precise": "Ain",
+      "broad": "Auvergne-Rhône-Alpes, France métropolitaine, France"
+    }
+  },
+  {
+    "filename": "IMG_1292.jpeg",
+    "date": "2021-12-11",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 48.582912,
+      "longitude": -70.87781
+    },
+    "location": {
+      "precise": "Le Fjord-du-Saguenay",
+      "broad": "Saguenay–Lac-Saint-Jean, Québec, Canada"
+    }
+  },
+  {
+    "filename": "IMG_3186.jpeg",
+    "date": "2022-03-01",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 23.087925,
+      "longitude": -81.44968
+    },
+    "location": {
+      "precise": "Matanzas",
+      "broad": "Cuba"
+    }
+  },
+  {
+    "filename": "IMG_9163.jpeg",
+    "date": "2023-09-18",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 38.679382,
+      "longitude": -9.171367
+    },
+    "location": {
+      "precise": "Setúbal",
+      "broad": "Portugal"
+    }
+  },
+  {
+    "filename": "IMG_9030.jpeg",
+    "date": "2023-09-16",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 38.710762,
+      "longitude": -9.143733
+    },
+    "location": {
+      "precise": "Lisboa",
+      "broad": "Portugal"
+    }
+  },
+  {
+    "filename": "IMG_3485.jpeg",
+    "date": "2022-03-03",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 23.135822,
+      "longitude": -81.28973
+    },
+    "location": {
+      "precise": "Matanzas",
+      "broad": "Cuba"
+    }
+  },
+  {
+    "filename": "IMG_2980.jpeg",
+    "date": "2024-10-26",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 48.218185,
+      "longitude": -3.1597612
+    },
+    "location": {
+      "precise": "Côtes-d'Armor",
+      "broad": "Bretagne, France métropolitaine, France"
+    }
+  },
+  {
+    "filename": "IMG_2134.jpeg",
+    "date": "2021-09-19",
+    "width": 2048,
+    "height": 1536,
+    "gps": {
+      "latitude": 48.427017,
+      "longitude": -72.16885
+    },
+    "location": {
+      "precise": "Le Domaine-du-Roy",
+      "broad": "Saguenay–Lac-Saint-Jean, Québec, Canada"
+    }
+  },
+  {
+    "filename": "IMG_2319.jpeg",
+    "date": "2024-09-10",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 50.088455,
+      "longitude": 14.393522
+    },
+    "location": {
+      "precise": "Hlavní město Praha",
+      "broad": "Praha, Česko"
+    }
+  },
+  {
+    "filename": "IMG_3174.jpeg",
+    "date": "2022-03-01",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 23.038994,
+      "longitude": -81.49568
+    },
+    "location": {
+      "precise": "Matanzas",
+      "broad": "Cuba"
+    }
+  },
+  {
+    "filename": "IMG_2289.jpeg",
+    "date": "2021-12-30",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 40.705616,
+      "longitude": -73.92375
+    },
+    "location": {
+      "precise": "Kings County",
+      "broad": "City of New York, New York, United States"
+    }
+  },
+  {
+    "filename": "IMG_3284.jpeg",
+    "date": "2022-03-01",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 23.13444,
+      "longitude": -81.285706
+    },
+    "location": {
+      "precise": "Cárdenas",
+      "broad": "Matanzas, Cuba"
+    }
+  },
+  {
+    "filename": "IMG_0492.jpeg",
+    "date": "2021-10-12",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 43.079403,
+      "longitude": -79.07802
+    },
+    "location": {
+      "precise": "Niagara Region",
+      "broad": "Golden Horseshoe, Ontario, Canada"
+    }
+  },
+  {
+    "filename": "IMG_2552.jpeg",
+    "date": "2024-09-11",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 50.088455,
+      "longitude": 14.449577
+    },
+    "location": {
+      "precise": "Hlavní město Praha",
+      "broad": "Praha, Česko"
+    }
+  },
+  {
+    "filename": "IMG_0938.jpeg",
+    "date": "2021-10-24",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 48.43053,
+      "longitude": -71.05728
+    },
+    "location": {
+      "precise": "Saguenay–Lac-Saint-Jean",
+      "broad": "Québec, Canada"
+    }
+  },
+  {
+    "filename": "IMG_9427.jpeg",
+    "date": "2023-09-20",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 38.792416,
+      "longitude": -9.382112
+    },
+    "location": {
+      "precise": "Lisboa",
+      "broad": "Portugal"
+    }
+  },
+  {
+    "filename": "IMG_7634.jpeg",
+    "date": "2023-05-28",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 48.05029,
+      "longitude": 6.745989
+    },
+    "location": {
+      "precise": "Vosges",
+      "broad": "Grand Est, France métropolitaine, France"
+    }
+  }
+]

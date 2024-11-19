@@ -1,9 +1,6 @@
 # built css
 /public/style.css
 
-# wallpapers
-wallpapers.json
-
 # build output
 target/
 pkg

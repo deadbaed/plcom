@@ -67,7 +67,6 @@
               # Assets for codegen
               (lib.hasSuffix ".json" path)
               ||
-                # Static assets
                 # Default filter from crane (allow .rs files)
                 (craneLib.filterCargoSources path type);
           };
@@ -109,6 +108,7 @@
         plcomBinary = craneLib.buildPackage (
           commonArgs
           // {
+            cargoExtraArgs = "-p plcom";
             cargoArtifacts = plcomClippy;
           }
         );

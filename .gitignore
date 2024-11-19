@@ -7,6 +7,7 @@ wallpapers.json
 # build output
 target/
 pkg
+/result
 
 # environment variables
 .env
@@ -20,3 +21,6 @@ pkg
 
 # rustfmt
 **/*.rs.bk
+
+# vim
+[._]*.sw[a-p]

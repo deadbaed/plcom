@@ -84,10 +84,10 @@
               pkgs.libiconv
             ];
 
-          # nativeBuildInputs = with pkgs; [
-          #   # Add extra native build inputs here, etc.
-          #   pkg-config
-          # ];
+          nativeBuildInputs = with pkgs; [
+            # Add extra native build inputs here, etc.
+            pkg-config
+          ];
 
         } // metadata;
 

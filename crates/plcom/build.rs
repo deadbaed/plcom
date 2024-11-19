@@ -360,6 +360,9 @@ fn main() {
     let wallpapers_dest = std::path::Path::new(&out_dir).join("wallpapers.rs");
     match std::fs::File::open("wallpapers.json") {
         Ok(source) => wallpapers(&wallpapers_dest, source),
-        Err(_) => println!("cargo::warning=skipping wallpapers, file not found"),
+        Err(_) => {
+            std::fs::write(wallpapers_dest, "pub const WALLPAPERS: [Wallpaper; 0] = [];").unwrap();
+            println!("cargo::warning=skipping wallpapers, file not found");
+        }
     }
 }

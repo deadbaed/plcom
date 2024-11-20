@@ -1,13 +1,14 @@
 {
-  pkgs,
+  stdenvNoCC,
+  tailwindcss,
   src,
   inputFile,
 }:
 
-pkgs.stdenvNoCC.mkDerivation {
+stdenvNoCC.mkDerivation {
   name = "plcom-css-tailwind";
   inherit src;
-  buildInputs = with pkgs; [ tailwindcss ];
+  buildInputs = [ tailwindcss ];
   dontUnpack = true;
-  buildPhase = "tailwindcss --config ${src}/tailwind.config.js --input ${src}/${inputFile} --output $out/output.css --minify";
+  buildPhase = "${tailwindcss}/bin/tailwindcss --config ${src}/tailwind.config.js --input ${src}/${inputFile} --output $out/output.css --minify";
 }

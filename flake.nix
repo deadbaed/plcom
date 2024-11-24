@@ -54,21 +54,11 @@
 
       in
       {
-        apps.default = {
-          type = "app";
-          program = "${plcom}/bin/plcom";
-        };
-
-        packages = {
-          inherit plcom;
-          default = plcom;
-        };
+        packages.system.default = plcom;
 
         checks = {
-          inherit
-            # Build the crate as part of `nix flake check` for convenience
-            plcomBinary
-            ;
+          # Build the crate as part of `nix flake check` for convenience
+          inherit plcomBinary;
         };
 
       }

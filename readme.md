@@ -16,7 +16,7 @@ http://philippeloctaux.com
 ## wallpapers
 
 1. place **JPEG** files in `public/wallpapers` and make sure they have exif data (GPS + date)
-2. run `cargo run -p gen-wallpapers --example cli -- ./public/wallpapers > ./crates/plcom/wallpapers.json` to generate wallpaper metadata
+2. inside `crates/gen-wallpapers`, run `cargo run --example cli -- ./public/wallpapers > ./crates/plcom/wallpapers.json` to generate wallpaper metadata
 
 ## icons
 

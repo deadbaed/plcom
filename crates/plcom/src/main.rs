@@ -17,7 +17,7 @@ use pages::*;
 
 #[rocket::launch]
 fn rocket() -> _ {
-    let assets = std::env::var("PLCOM_ASSETS_PATH").unwrap_or("public".into());
+    let assets = std::env::var("PLCOM_ASSETS_PATH").unwrap_or("../../public".into());
 
     let server = rocket::build()
         .mount("/", rocket::fs::FileServer::from(assets))

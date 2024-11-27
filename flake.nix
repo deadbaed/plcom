@@ -13,6 +13,7 @@
 
   outputs =
     {
+      self,
       nixpkgs,
       crane,
       flake-utils,
@@ -47,21 +48,24 @@
           craneLib = craneLib;
         };
 
-        # How to launch binary
-        plcom = pkgs.writeShellScriptBin "plcom" ''
-          PLCOM_ASSETS_PATH=${plcomAssets} ${plcomBinary}/bin/plcom
-        '';
-
       in
       {
-        packages.${system} = {
-          plcom = plcom;
+        packages = rec {
+          # How to launch binary
+          plcom = pkgs.writeShellScriptBin "plcom" ''
+            PLCOM_ASSETS_PATH=${plcomAssets} ${plcomBinary}/bin/plcom
+          '';
           default = plcom;
         };
 
         checks = {
           # Build the crate as part of `nix flake check` for convenience
           inherit plcomBinary;
+        };
+
+        apps = rec {
+          plcomBinary = flake-utils.lib.mkApp { drv = self.packages.${system}.plcom; };
+          default = plcomBinary;
         };
 
       }

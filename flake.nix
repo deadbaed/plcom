@@ -13,7 +13,6 @@
 
   outputs =
     {
-      self,
       nixpkgs,
       crane,
       flake-utils,
@@ -61,11 +60,6 @@
         checks = {
           # Build the crate as part of `nix flake check` for convenience
           inherit plcomBinary;
-        };
-
-        apps = rec {
-          plcomBinary = flake-utils.lib.mkApp { drv = self.packages.${system}.plcom; };
-          default = plcomBinary;
         };
 
       }

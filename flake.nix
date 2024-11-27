@@ -54,7 +54,10 @@
 
       in
       {
-        packages.system.default = plcom;
+        packages.${system} = {
+          plcom = plcom;
+          default = plcom;
+        };
 
         checks = {
           # Build the crate as part of `nix flake check` for convenience

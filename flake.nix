@@ -47,13 +47,15 @@
           craneLib = craneLib;
         };
 
+        # How to launch binary
+        plcom = pkgs.writeShellScriptBin "plcom" ''
+          PLCOM_ASSETS_PATH=${plcomAssets} ${plcomBinary}/bin/plcom
+        '';
+
       in
       {
-        packages = rec {
-          # How to launch binary
-          plcom = pkgs.writeShellScriptBin "plcom" ''
-            PLCOM_ASSETS_PATH=${plcomAssets} ${plcomBinary}/bin/plcom
-          '';
+        packages = {
+          inherit plcom;
           default = plcom;
         };
 

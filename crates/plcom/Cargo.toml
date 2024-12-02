@@ -5,7 +5,7 @@ edition = "2021"
 
 [dependencies]
 rocket = "0.5"
-leptos = {version = "0.7.0-rc3" , features = ["ssr"]}
+leptos = { version = "0.7.0", features = ["ssr"] }
 jiff = "0.1"
 rocket_async_compression = "0.6"
 nanorand = { version = "0.7", features = ["chacha"] }
@@ -14,4 +14,3 @@ tailwind_fuse = { version = "0.3", features = ["variant"] }
 [build-dependencies]
 serde = "1.0"
 serde_json = "1.0"
-

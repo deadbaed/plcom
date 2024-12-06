@@ -43,6 +43,12 @@ pub fn shell(title: &str, children: impl IntoAny) -> AnyView {
                 </footer>
             </body>
 
+            <script inner_html=r#"
+                window.goatcounter = {
+                    path: function(p) { return location.host + p }
+                }
+            "#></script>
+            <script data-goatcounter="https://goatcounter.philt3r.eu/count" async src="https://goatcounter.philt3r.eu/count.js"></script>
         </html>
     }.into_any()
 }

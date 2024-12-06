@@ -42,13 +42,7 @@ pub fn shell(title: &str, children: impl IntoAny) -> AnyView {
                     </div>
                 </footer>
             </body>
-
-            <script inner_html=r#"
-                window.goatcounter = {
-                    path: function(p) { return location.host + p }
-                }
-            "#></script>
-            <script data-goatcounter="https://goatcounter.philt3r.eu/count" async src="https://goatcounter.philt3r.eu/count.js"></script>
+            {stats().into_any()}
         </html>
     }.into_any()
 }
@@ -66,4 +60,15 @@ pub fn content_page(title: &str, children: impl IntoAny) -> AnyView {
         .into_any(),
     )
     .into_any()
+}
+
+pub fn stats() -> impl IntoView {
+    view! {
+        <script inner_html=r#"
+            window.goatcounter = {
+                path: function(p) { return location.host + p }
+            };
+        "#></script>
+        <script data-goatcounter="https://goatcounter.philt3r.eu/count" async src="https://goatcounter.philt3r.eu/count.js"></script>
+    }
 }

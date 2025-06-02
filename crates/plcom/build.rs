@@ -1,3 +1,5 @@
+// TODO: use something like https://github.com/oxidecomputer/typify
+
 use serde::Deserialize;
 
 #[derive(Debug, Deserialize)]

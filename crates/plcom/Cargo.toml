@@ -6,7 +6,7 @@ edition = "2021"
 [dependencies]
 rocket = "0.5"
 leptos = { version = "0.7.0", features = ["ssr"] }
-jiff = "0.1"
+jiff = "0.2"
 rocket_async_compression = "0.6"
 nanorand = { version = "0.7", features = ["chacha"] }
 tailwind_fuse = { version = "0.3", features = ["variant"] }

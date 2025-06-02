@@ -1,5 +1,19 @@
 [
   {
+    "filename": "IMG_4467.jpeg",
+    "date": "2025-05-18",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 51.51306,
+      "longitude": -0.09605555
+    },
+    "location": {
+      "precise": "City of London",
+      "broad": "Greater London, England, United Kingdom"
+    }
+  },
+  {
     "filename": "IMG_2287.jpeg",
     "date": "2021-09-11",
     "width": 2048,

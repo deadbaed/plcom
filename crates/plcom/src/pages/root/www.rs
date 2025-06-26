@@ -22,23 +22,20 @@ impl IntoAny for Www {
 pub fn list() -> impl IntoAny {
     let www = [
         Www {
-            link: Link::new(
-                uri!("https://twitter.com/philippeloctaux").into(),
-                "Twitter",
-            ),
-            icon: Icon::Twitter,
-        },
-        Www {
-            link: Link::new(uri!("https://t.me/philippeloctaux").into(), "Telegram"),
-            icon: Icon::Telegram,
+            link: Link::new(uri!("https://github.com/deadbaed").into(), "GitHub"),
+            icon: Icon::Github,
         },
         Www {
             link: Link::new(uri!("https://mastodon.social/@philt3r").into(), "Mastodon"),
             icon: Icon::Mastodon,
         },
         Www {
-            link: Link::new(uri!("https://github.com/deadbaed").into(), "GitHub"),
-            icon: Icon::Github,
+            link: Link::new(uri!("https://matrix.to/#/@philt3r:mozilla.org").into(), "Matrix"),
+            icon: Icon::Matrix,
+        },
+        Www {
+            link: Link::new(uri!("https://youtube.com/philippeloctaux").into(), "YouTube"),
+            icon: Icon::YouTube,
         },
         Www {
             link: Link::new(

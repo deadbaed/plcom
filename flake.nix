@@ -30,7 +30,7 @@
         # Gather assets
         plcomAssets = import ./crates/plcom/assets.nix {
           stdenvNoCC = pkgs.stdenvNoCC;
-          tailwindcss = pkgs.tailwindcss;
+          tailwindcss = pkgs.tailwindcss_4;
           tailwindProjectRoot = ./crates/plcom;
           src = ./public;
         };

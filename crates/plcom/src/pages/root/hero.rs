@@ -68,7 +68,7 @@ pub fn hero(wallpaper: Option<&'static Wallpaper>) -> impl IntoAny {
             <div
                 id="wallpaper"
                 class=tw_join!(
-                    "relative", "text-white", "w-full", "h-almostscreen", "bg-center", "bg-cover"
+                    "relative", "text-white", "w-full", "h-(--almostscreen)", "bg-center", "bg-cover"
                 )
 
                 style=background_image

@@ -10,5 +10,5 @@ stdenvNoCC.mkDerivation {
   inherit src;
   nativeBuildInputs = [ tailwindcss ];
   dontUnpack = true;
-  buildPhase = "${tailwindcss}/bin/tailwindcss --config ${src}/tailwind.config.js --input ${src}/${inputFile} --output $out/output.css --minify";
+  buildPhase = "${tailwindcss}/bin/tailwindcss --input ${src}/${inputFile} --output $out/output.css --cwd ${src} --minify";
 }

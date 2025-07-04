@@ -1,6 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+    --almostscreen: 90vh;
+    --halfscreen: 60vh;
+}
 
 /* Fixed background when scrolling in tailwind
  * Disabled on iOS devices

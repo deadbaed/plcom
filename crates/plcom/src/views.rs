@@ -8,7 +8,6 @@ pub fn shell(title: &str, children: impl IntoAny) -> AnyView {
         title.into()
     };
 
-    let year = jiff::Zoned::now().year();
     view! {
         <!DOCTYPE html>
         <html lang="en">
@@ -36,15 +35,12 @@ pub fn shell(title: &str, children: impl IntoAny) -> AnyView {
                 <main class=tw_join!("flex-grow")>
                     {children.into_any()}
                 </main>
-                <footer class=tw_join!("bg-black")>
-                    <div class=tw_join!("container", "mx-auto", "px-4", "py-8")>
-                        <p>"© 2015 - "{year}" Philippe Loctaux, made with "{underline_link(Link::new(uri!("https://leptos.dev").into(), "Leptos"), None).into_any()}"."</p>
-                    </div>
-                </footer>
+                {footer().into_any()}
             </body>
             {stats().into_any()}
         </html>
-    }.into_any()
+    }
+    .into_any()
 }
 
 pub fn content_page(title: &str, children: impl IntoAny) -> AnyView {
@@ -62,7 +58,18 @@ pub fn content_page(title: &str, children: impl IntoAny) -> AnyView {
     .into_any()
 }
 
-pub fn stats() -> impl IntoView {
+fn footer() -> impl IntoView {
+    let year = jiff::Zoned::now().year();
+    view! {
+        <footer class=tw_join!("bg-black")>
+            <div class=tw_join!("container", "mx-auto", "px-4", "py-8")>
+                <p>"© 2015 - "{year}" Philippe Loctaux, made with "{underline_link(Link::new(uri!("https://leptos.dev").into(), "Leptos"), None).into_any()}"."</p>
+            </div>
+        </footer>
+    }
+}
+
+fn stats() -> impl IntoView {
     view! {
         <script inner_html=r#"
             window.goatcounter = {

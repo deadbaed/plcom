@@ -10,6 +10,9 @@ jiff = "0.2"
 rocket_async_compression = "0.6"
 nanorand = { version = "0.8", features = ["chacha"] }
 tailwind_fuse = { version = "0.3", features = ["variant"] }
+thiserror = "2"
+reqwest = "0.12"
+atom_syndication = "0.12"
 
 [build-dependencies]
 serde = "1.0"

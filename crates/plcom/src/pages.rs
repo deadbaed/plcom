@@ -28,12 +28,17 @@ pub fn not_found() -> LeptosResponder {
 }
 
 #[get("/?<wallpaper>")]
-pub fn root_route(wallpaper: Option<&str>) -> LeptosResponder {
+pub async fn root_route(wallpaper: Option<&str>) -> LeptosResponder {
     let wallpaper = wallpaper
         .and_then(Wallpaper::find)
         .or_else(Wallpaper::random);
 
-    shell("Philippe Loctaux", root::root_page(wallpaper)).into()
+    let mut blog = root::Blog::new("https://philippeloctaux.com/blog/atom.xml");
+    if let Err(e) = blog.fetch_feed().await {
+        println!("Failed to get Atom feed: {e}");
+    }
+
+    shell("Philippe Loctaux", root::root_page(wallpaper, blog)).into()
 }
 
 #[get("/email")]

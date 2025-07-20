@@ -15,7 +15,7 @@ impl<'a> Link<'a> {
             label: label.into(),
         }
     }
-    pub fn parse(uri: &'static str, label: impl Into<String>) -> Self {
+    pub fn parse(uri: &'a str, label: impl Into<String>) -> Self {
         Self {
             uri: Uri::parse_any(uri).expect("not a real uri"),
             label: label.into(),

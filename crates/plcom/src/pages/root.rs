@@ -1,3 +1,4 @@
+mod blog;
 mod education;
 mod experience;
 mod friends;
@@ -10,7 +11,9 @@ mod www;
 use crate::common::wallpapers::Wallpaper;
 use crate::prelude::*;
 
-pub fn root_page(wallpaper: Option<&'static Wallpaper>) -> impl IntoAny {
+pub use blog::Blog;
+
+pub fn root_page(wallpaper: Option<&'static Wallpaper>, blog: Blog) -> impl IntoAny {
     view! {
         {hero::hero(wallpaper).into_any()}
 
@@ -18,6 +21,7 @@ pub fn root_page(wallpaper: Option<&'static Wallpaper>) -> impl IntoAny {
             {whoami}
             <div class=tw_join!("my-16", "space-y-16", "md:space-y-32")>
                 {www::list().into_any()}
+                {blog.into_any()}
                 {jobs::jobs().into_any()}
                 {projects::projects().into_any()}
                 {education::education_list().into_any()}

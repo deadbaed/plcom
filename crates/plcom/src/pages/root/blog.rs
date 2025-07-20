@@ -1,17 +1,14 @@
 use crate::prelude::*;
 
 pub struct Blog<'a> {
-    url: &'a str,
+    path: &'a str,
     feed: Option<atom_syndication::Feed>,
 }
 
 #[derive(Debug, thiserror::Error)]
 pub enum BlogError {
-    #[error("Failed to make HTTP request: {0}")]
-    HttpNetwork(reqwest::Error),
-
-    #[error("Failed to parse HTTP response: {0}")]
-    HttpResponse(reqwest::Error),
+    #[error("Failed to read file: {0}")]
+    ReadFile(rocket::tokio::io::ErrorKind),
 
     #[error("Failed to parse Atom feed: {0}")]
     ParseFeed(atom_syndication::Error),
@@ -19,16 +16,24 @@ pub enum BlogError {
 
 impl<'a> Blog<'a> {
     pub fn new(url: &'a str) -> Self {
-        Self { url, feed: None }
+        Self {
+            path: url,
+            feed: None,
+        }
     }
 
     pub async fn fetch_feed(&mut self) -> Result<(), BlogError> {
-        let blog_feed = reqwest::get(self.url)
+        let mut file = rocket::tokio::fs::File::open(self.path)
             .await
-            .map_err(BlogError::HttpNetwork)?
-            .text()
+            .map_err(|e| BlogError::ReadFile(e.kind()))?;
+
+        use rocket::tokio::io::AsyncReadExt;
+        let mut buffer = String::new();
+        file.read_to_string(&mut buffer)
             .await
-            .map_err(BlogError::HttpResponse)?
+            .map_err(|e| BlogError::ReadFile(e.kind()))?;
+
+        let blog_feed = buffer
             .parse::<atom_syndication::Feed>()
             .map_err(BlogError::ParseFeed)?;
 

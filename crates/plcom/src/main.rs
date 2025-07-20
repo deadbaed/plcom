@@ -14,18 +14,42 @@ mod pages;
 mod views;
 
 use pages::*;
+use rocket::fairing::AdHoc;
+
+#[derive(rocket::serde::Deserialize, Debug)]
+#[serde(crate = "rocket::serde")]
+struct Config {
+    assets: String,
+    blog_feed: String,
+}
+
+pub fn config() -> rocket::figment::Figment {
+    use rocket::figment::providers::*;
+    use rocket::figment::Figment;
+    use rocket::Config;
+
+    // rocket defaults
+    Figment::from(Config::default())
+        // from env variables directly
+        .merge(Env::prefixed("PLCOM_").ignore(&["PROFILE"]).global())
+}
 
 #[rocket::launch]
 fn rocket() -> _ {
-    let assets = std::env::var("PLCOM_ASSETS_PATH").unwrap_or("../../public".into());
+    let rocket = rocket::custom(config());
+    let figment = rocket.figment();
 
-    let server = rocket::build()
-        .mount("/", rocket::fs::FileServer::from(assets))
+    let config: Config = figment.extract().expect("server configuration");
+    println!("Using configuration {config:#?}");
+
+    let server = rocket
+        .mount("/", rocket::fs::FileServer::from(config.assets))
         .mount(
             "/",
             rocket::routes![root_route, email_route, wallpapers_route],
         )
-        .register("/", rocket::catchers![not_found]);
+        .register("/", rocket::catchers![not_found])
+        .attach(AdHoc::config::<Config>());
 
     if cfg!(debug_assertions) {
         server

@@ -1,0 +1,11 @@
+#!/usr/bin/env just --justfile
+
+# list recipes
+default:
+  just --list
+
+run:
+  PLCOM_ASSETS=../../public PLCOM_BLOG_FEED=/Users/phil/x/blog/target/blog/atom.xml cargo run
+
+tailwind:
+  nix-shell -p tailwindcss_4 --run 'tailwindcss --input ./css/main.css --cwd {{invocation_directory()}}' > ../../public/style.css

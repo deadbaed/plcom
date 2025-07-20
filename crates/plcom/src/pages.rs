@@ -4,7 +4,7 @@ mod wallpapers;
 
 use crate::common::wallpapers::Wallpaper;
 use crate::prelude::*;
-use rocket::get;
+use rocket::{get, State};
 
 #[derive(rocket::Responder)]
 #[response(content_type = "text/html")]
@@ -28,12 +28,12 @@ pub fn not_found() -> LeptosResponder {
 }
 
 #[get("/?<wallpaper>")]
-pub async fn root_route(wallpaper: Option<&str>) -> LeptosResponder {
+pub async fn root_route(wallpaper: Option<&str>, config: &State<crate::Config>) -> LeptosResponder {
     let wallpaper = wallpaper
         .and_then(Wallpaper::find)
         .or_else(Wallpaper::random);
 
-    let mut blog = root::Blog::new("https://philippeloctaux.com/blog/atom.xml");
+    let mut blog = root::Blog::new(&config.blog_feed);
     if let Err(e) = blog.fetch_feed().await {
         println!("Failed to get Atom feed: {e}");
     }

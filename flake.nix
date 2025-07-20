@@ -49,7 +49,7 @@
 
         # How to launch binary
         plcom = pkgs.writeShellScriptBin "plcom" ''
-          PLCOM_ASSETS_PATH=${plcomAssets} ${plcomBinary}/bin/plcom
+          PLCOM_ASSETS=${plcomAssets} PLCOM_BLOG_FEED=/var/www/blog/current/www/atom.xml ${plcomBinary}/bin/plcom
         '';
 
       in

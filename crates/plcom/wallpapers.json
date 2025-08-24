@@ -56,6 +56,34 @@
     }
   },
   {
+    "filename": "IMG_43592.jpeg",
+    "date": "2025-05-11",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 48.84754,
+      "longitude": 2.375436
+    },
+    "location": {
+      "precise": "Paris",
+      "broad": "Île-de-France, France métropolitaine, France"
+    }
+  },
+  {
+    "filename": "IMG_5332.jpeg",
+    "date": "2025-08-12",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 46.117813,
+      "longitude": 6.722225
+    },
+    "location": {
+      "precise": "Haute-Savoie",
+      "broad": "Auvergne-Rhône-Alpes, France métropolitaine, France"
+    }
+  },
+  {
     "filename": "IMG_2361.jpeg",
     "date": "2021-08-27",
     "width": 2048,
@@ -123,6 +151,20 @@
     "location": {
       "precise": "Agglomération de Montréal",
       "broad": "Montréal (région administrative), Québec, Canada"
+    }
+  },
+  {
+    "filename": "IMG_5123.jpeg",
+    "date": "2025-08-04",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 48.837482,
+      "longitude": -3.4833694
+    },
+    "location": {
+      "precise": "Côtes-d'Armor",
+      "broad": "Bretagne, France métropolitaine, France"
     }
   },
   {
@@ -403,6 +445,20 @@
     "location": {
       "precise": "Lisboa",
       "broad": "Portugal"
+    }
+  },
+  {
+    "filename": "IMG_5326.jpeg",
+    "date": "2025-08-12",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 46.11799,
+      "longitude": 6.722711
+    },
+    "location": {
+      "precise": "Haute-Savoie",
+      "broad": "Auvergne-Rhône-Alpes, France métropolitaine, France"
     }
   },
   {

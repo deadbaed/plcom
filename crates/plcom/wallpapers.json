@@ -38,7 +38,7 @@
     },
     "location": {
       "precise": "Florida",
-      "broad": "United States"
+      "broad": "United States of America"
     }
   },
   {
@@ -136,7 +136,7 @@
     },
     "location": {
       "precise": "Los Angeles County",
-      "broad": "California, United States"
+      "broad": "California, United States of America"
     }
   },
   {
@@ -220,7 +220,7 @@
     },
     "location": {
       "precise": "Kings County",
-      "broad": "City of New York, New York, United States"
+      "broad": "City of New York, New York, United States of America"
     }
   },
   {
@@ -374,7 +374,7 @@
     },
     "location": {
       "precise": "Kings County",
-      "broad": "City of New York, New York, United States"
+      "broad": "City of New York, New York, United States of America"
     }
   },
   {

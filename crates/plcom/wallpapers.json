@@ -70,6 +70,20 @@
     }
   },
   {
+    "filename": "IMG_6318.jpeg",
+    "date": "2025-09-18",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 33.607944,
+      "longitude": -7.6332026
+    },
+    "location": {
+      "precise": "Pachalik de Casablanca باشوية الدار البيضاء",
+      "broad": "Préfecture de Casablanca عمالة الدار البيضاء, Casablanca-Settat ⵜⴰⴷⴷⴰⵔⵜ ⵜⵓⵎⵍⵉⵍⵜ-ⵙⵟⵟⴰⵜ الدار البيضاء-سطات, Maroc ⵍⵎⵖⵔⵉⴱ المغرب"
+    }
+  },
+  {
     "filename": "IMG_5332.jpeg",
     "date": "2025-08-12",
     "width": 4032,
@@ -109,6 +123,34 @@
     "location": {
       "precise": "Haut-Rhin",
       "broad": "Grand Est, France métropolitaine, France"
+    }
+  },
+  {
+    "filename": "IMG_6978.jpeg",
+    "date": "2025-10-30",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 34.064377,
+      "longitude": -4.9714417
+    },
+    "location": {
+      "precise": "Pachalik du Fes باشوية فاس",
+      "broad": "Préfecture de Fès عمالة فاس, Fès-Meknès ⴼⴰⵙ-ⵎⴽⵏⴰⵙ فاس-مكناس, Maroc ⵍⵎⵖⵔⵉⴱ المغرب"
+    }
+  },
+  {
+    "filename": "IMG_5712.jpeg",
+    "date": "2025-09-09",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 31.61278,
+      "longitude": -8.022275
+    },
+    "location": {
+      "precise": "Pachalik de Marrakech",
+      "broad": "Préfecture de Marrakech عمالة مراكش, Marrakech-Safi ⵎⵕⵕⴰⴽⵛ-ⴰⵙⴼⵉ مراكش-أسفي, Maroc ⵍⵎⵖⵔⵉⴱ المغرب"
     }
   },
   {
@@ -182,6 +224,20 @@
     }
   },
   {
+    "filename": "IMG_6715.jpeg",
+    "date": "2025-10-27",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 34.030605,
+      "longitude": -6.836289
+    },
+    "location": {
+      "precise": "باشوية الرباط",
+      "broad": "Préfecture de Rabat عمالة الرباط, Rabat-Salé-Kénitra ⵔⴱⴰⵟ-ⵙⵍⴰ-ⵇⵏⵉⵟⵔⴰ الرباط-سلا-القنيطرة, Maroc ⵍⵎⵖⵔⵉⴱ المغرب"
+    }
+  },
+  {
     "filename": "IMG_2392.jpeg",
     "date": "2024-09-10",
     "width": 4032,
@@ -193,6 +249,34 @@
     "location": {
       "precise": "Hlavní město Praha",
       "broad": "Praha, Česko"
+    }
+  },
+  {
+    "filename": "IMG_6829.jpeg",
+    "date": "2025-10-28",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 34.006527,
+      "longitude": -6.820536
+    },
+    "location": {
+      "precise": "باشوية الرباط",
+      "broad": "Préfecture de Rabat عمالة الرباط, Rabat-Salé-Kénitra ⵔⴱⴰⵟ-ⵙⵍⴰ-ⵇⵏⵉⵟⵔⴰ الرباط-سلا-القنيطرة, Maroc ⵍⵎⵖⵔⵉⴱ المغرب"
+    }
+  },
+  {
+    "filename": "IMG_6757.jpeg",
+    "date": "2025-10-27",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 34.029686,
+      "longitude": -6.8351083
+    },
+    "location": {
+      "precise": "باشوية الرباط",
+      "broad": "Préfecture de Rabat عمالة الرباط, Rabat-Salé-Kénitra ⵔⴱⴰⵟ-ⵙⵍⴰ-ⵇⵏⵉⵟⵔⴰ الرباط-سلا-القنيطرة, Maroc ⵍⵎⵖⵔⵉⴱ المغرب"
     }
   },
   {
@@ -420,6 +504,20 @@
     }
   },
   {
+    "filename": "IMG_5956.jpeg",
+    "date": "2025-09-11",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 30.429148,
+      "longitude": -9.626014
+    },
+    "location": {
+      "precise": "Pachalik d'Agadir ⵍⴱⴰⵛⴰⵡⵉⵢⴰ ⵏ ⴰⴳⴰⴷⵉⵔ باشوية أكادير",
+      "broad": "Préfecture d'Agadir Ida-Outanane ⵍⵄⴰⵎⴰⵍⴰ ⵏ ⴰⴳⴰⴷⵉⵔ ⵉⴷⴰ ⵡⵜⴰⵏⴰⵏ عمالة أكادير إدا وتنان, Souss-Massa ⵙⵓⵙⵙ-ⵎⴰⵙⵙⴰ سوس-ماسة, Maroc ⵍⵎⵖⵔⵉⴱ المغرب"
+    }
+  },
+  {
     "filename": "IMG_0938.jpeg",
     "date": "2021-10-24",
     "width": 4032,
@@ -445,6 +543,20 @@
     "location": {
       "precise": "Lisboa",
       "broad": "Portugal"
+    }
+  },
+  {
+    "filename": "IMG_6707.jpeg",
+    "date": "2025-10-27",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 34.026558,
+      "longitude": -6.8277807
+    },
+    "location": {
+      "precise": "باشوية الرباط",
+      "broad": "Préfecture de Rabat عمالة الرباط, Rabat-Salé-Kénitra ⵔⴱⴰⵟ-ⵙⵍⴰ-ⵇⵏⵉⵟⵔⴰ الرباط-سلا-القنيطرة, Maroc ⵍⵎⵖⵔⵉⴱ المغرب"
     }
   },
   {

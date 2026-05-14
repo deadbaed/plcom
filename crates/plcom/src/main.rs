@@ -21,6 +21,7 @@ use rocket::fairing::AdHoc;
 struct Config {
     assets: String,
     blog_feed: String,
+    wallpapers: Option<String>,
 }
 
 pub fn config() -> rocket::figment::Figment {
@@ -42,7 +43,19 @@ fn rocket() -> _ {
     let config: Config = figment.extract().expect("server configuration");
     println!("Using configuration {config:#?}");
 
-    let server = rocket
+    let server = rocket;
+
+    // Serve wallpapers through rocket only during development
+    // In prodution, use nginx
+    let server = match config.wallpapers {
+        Some(path) => server.mount(
+            "/wallpapers/files",
+            rocket::fs::FileServer::from(path).rank(30),
+        ),
+        None => server,
+    };
+
+    let server = server
         .mount("/", rocket::fs::FileServer::from(config.assets))
         .mount(
             "/",

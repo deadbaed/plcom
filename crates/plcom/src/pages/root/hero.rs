@@ -58,7 +58,7 @@ pub fn hero(wallpaper: Option<&'static Wallpaper>) -> impl IntoAny {
     let (wallpaper_info, background_image) = match wallpaper {
         Some(wallpaper) => (
             wallpaper_info(wallpaper).into_any(),
-            format!("background-image: url(/wallpapers/{});", wallpaper.filename),
+            format!("background-image: url(/wallpapers/files/{});", wallpaper.filename),
         ),
         None => (().into_any(), "".to_string()),
     };

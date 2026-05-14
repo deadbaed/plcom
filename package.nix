@@ -27,7 +27,6 @@ let
   };
 
   # How to launch binary
-  # TODO: put path to wallpapers here?
   wrappedPackage = pkgs.writeShellScriptBin "plcom" ''
     PLCOM_ASSETS=${plcomAssets} PLCOM_BLOG_FEED=/var/www/blog/current/www/atom.xml ${plcomCrane.package}/bin/plcom
   '';

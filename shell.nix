@@ -8,7 +8,6 @@
   common ? import ./. { inherit sources pkgs; },
   fmt ? import ./fmt.nix { inherit sources pkgs; },
   gen-wallpapers ? import ./crates/gen-wallpapers { inherit sources pkgs; },
-  plcom ? import ./package.nix { inherit sources pkgs common; },
   supervisord ? import sources.nix-supervisord { inherit pkgs; },
 }:
 
@@ -25,6 +24,7 @@ let
       environment = {
         PLCOM_ASSETS = "./public";
         PLCOM_BLOG_FEED = "/dev/null";
+        PLCOM_WALLPAPERS = "./public/wallpapers";
       };
     }
   ];

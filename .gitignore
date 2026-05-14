@@ -4,7 +4,6 @@
 # build output
 target/
 pkg
-/result
 
 # environment variables
 .env
@@ -23,7 +22,7 @@ pkg
 [._]*.sw[a-p]
 
 # nix
-result
+result*
 .direnv*
 .envrc
 .supervisor

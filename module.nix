@@ -37,6 +37,13 @@ in
       locations."/" = {
         proxyPass = "http://localhost:${toString cfg.port}";
       };
+      locations."/wallpapers/files/" = {
+        alias = "/var/www/wallpapers/";
+        tryFiles = "$uri $uri/ =404";
+        extraConfig = ''
+          autoindex on;
+        '';
+      };
     };
   };
 }

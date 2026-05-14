@@ -8,7 +8,7 @@
     ];
   },
   crane ? import sources.crane { inherit pkgs; },
-  common ? import ../.. { inherit sources pkgs; },
+  common ? import ./. { inherit sources pkgs; },
 }:
 
 let

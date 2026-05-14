@@ -1,0 +1,69 @@
+{
+  "pins": {
+    "crane": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "ipetkov",
+        "repo": "crane"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "v0.23.2",
+      "revision": "d01ed44f4c494d2e65a30c78249e00a4e2139619",
+      "url": "https://api.github.com/repos/ipetkov/crane/tarball/refs/tags/v0.23.2",
+      "hash": "sha256-BEp040fMklOW2+ttpNUKivlE0hzpv0AAP+0kG47uVCk="
+    },
+    "nix-supervisord": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "deadbaed",
+        "repo": "nix-supervisord"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "0.4.0",
+      "revision": "739087020d9b3c367aa010e0b5faa78ad89ac6a0",
+      "url": "https://api.github.com/repos/deadbaed/nix-supervisord/tarball/refs/tags/0.4.0",
+      "hash": "sha256-RGCVT2yan5FVBc+XVoPMuyhpnTIw0xTWTaDvtgNfosY="
+    },
+    "nixpkgs": {
+      "type": "Channel",
+      "name": "nixpkgs-unstable",
+      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.05pre985930.01fbdeef22b7/nixexprs.tar.xz",
+      "hash": "sha256-Kq5uL1t/WUp+Z3CjXDpoE9seUiUNLqHN3FkiIjneWeA="
+    },
+    "rust-overlay": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "oxalica",
+        "repo": "rust-overlay"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "aaec8c50baeaf2f2ba653e8aae71778a2bbbac94",
+      "url": "https://github.com/oxalica/rust-overlay/archive/aaec8c50baeaf2f2ba653e8aae71778a2bbbac94.tar.gz",
+      "hash": "sha256-ERiu3cbxvnTDxiDcimRA7af7xp6x1y0sRyLGm28Qzz8="
+    },
+    "treefmt-nix": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "numtide",
+        "repo": "treefmt-nix"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "778a1d691f1ef45dd68c661715c5bf8cbf131c80",
+      "url": "https://github.com/numtide/treefmt-nix/archive/778a1d691f1ef45dd68c661715c5bf8cbf131c80.tar.gz",
+      "hash": "sha256-QfX6g3Wj2vQe7oBJEbTf0npvC6sJoDbF9hb2+gM5tf8="
+    }
+  },
+  "version": 7
+}

@@ -1,14 +1,18 @@
 {
-  stdenvNoCC,
-  tailwindcss,
+  sources ? import ./npins,
+  pkgs ? import sources.nixpkgs { },
+  lib ? pkgs.lib,
   src,
   inputFile,
 }:
 
-stdenvNoCC.mkDerivation {
+let
+  package = pkgs.tailwindcss_4;
+in
+pkgs.stdenvNoCC.mkDerivation {
   name = "plcom-css-tailwind";
   inherit src;
-  nativeBuildInputs = [ tailwindcss ];
+  nativeBuildInputs = [ package ];
   dontUnpack = true;
-  buildPhase = "${tailwindcss}/bin/tailwindcss --input ${src}/${inputFile} --output $out/output.css --cwd ${src} --minify";
+  buildPhase = "${lib.getExe package} --input ${src}/${inputFile} --output $out/output.css --cwd ${src} --minify";
 }

@@ -21,3 +21,9 @@ pkg
 
 # vim
 [._]*.sw[a-p]
+
+# nix
+result
+.direnv*
+.envrc
+.supervisor

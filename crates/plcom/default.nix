@@ -1,8 +1,7 @@
 {
-  libiconv,
-  lib,
-  pkg-config,
-  stdenv,
+  sources ? import ./npins,
+  pkgs ? import sources.nixpkgs { },
+  lib ? pkgs.lib,
   craneLib,
 }:
 
@@ -21,39 +20,34 @@ let
 
     strictDeps = true;
 
-    buildInputs =
-      [
-        # Add additional build inputs here
-      ]
-      ++ lib.optionals stdenv.isDarwin [
-        libiconv
-      ];
+    buildInputs = [
+      # Add additional build inputs here
+    ]
+    ++ lib.optionals pkgs.stdenv.isDarwin [
+      pkgs.libiconv
+    ];
 
     nativeBuildInputs = [
       # Add extra native build inputs here, etc.
-      pkg-config
+      pkgs.pkg-config
     ];
   };
 
   # Build *just* the cargo dependencies
   cargoArtifacts = craneLib.buildDepsOnly commonArgs;
 
-  # Clippy
-  clippyArtifacts = craneLib.cargoClippy (
+  # Build the actual crate itself, reusing the dependency
+  # artifacts from above.
+  plcom = craneLib.buildPackage (
     commonArgs
     // {
-      inherit cargoArtifacts;
-      # Again we apply some extra arguments only to this derivation
-      # and not every where else. In this case we add some clippy flags
-      # cargoClippyExtraArgs = "--all-targets -- --deny warnings";
+      cargoExtraArgs = "-p plcom";
+      cargoArtifacts = cargoArtifacts;
     }
   );
-
 in
-craneLib.buildPackage (
-  commonArgs
-  // {
-    cargoExtraArgs = "-p plcom";
-    cargoArtifacts = clippyArtifacts;
-  }
-)
+{
+  inherit cargoArtifacts;
+  package = plcom;
+
+}

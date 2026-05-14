@@ -1,20 +1,19 @@
 {
-  stdenvNoCC,
-  tailwindcss,
+  sources ? import ./npins,
+  pkgs ? import sources.nixpkgs { },
   tailwindProjectRoot,
   src,
 }:
 
 let
   tailwindStylesheet = import ./tailwind.nix {
-    stdenvNoCC = stdenvNoCC;
-    tailwindcss = tailwindcss;
+    inherit sources pkgs;
     src = tailwindProjectRoot;
     inputFile = "css/main.css";
   };
 
 in
-stdenvNoCC.mkDerivation {
+pkgs.stdenvNoCC.mkDerivation {
   name = "plcom-assets";
   src = src;
   buildInputs = [ tailwindStylesheet ];

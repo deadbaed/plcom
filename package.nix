@@ -1,6 +1,8 @@
 {
+  system ? builtins.currentSystem,
   sources ? import ./npins,
   pkgs ? import sources.nixpkgs {
+    inherit system;
     overlays = [
       (import sources.rust-overlay)
     ];

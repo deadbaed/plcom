@@ -154,6 +154,20 @@
     }
   },
   {
+    "filename": "IMG_8120.jpeg",
+    "date": "2026-05-04",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 43.154152,
+      "longitude": 18.837637
+    },
+    "location": {
+      "precise": "Opština Plužine",
+      "broad": "81435, Crna Gora / Црна Гора"
+    }
+  },
+  {
     "filename": "IMG_1301.jpeg",
     "date": "2021-12-11",
     "width": 4032,
@@ -168,6 +182,20 @@
     }
   },
   {
+    "filename": "IMG_8209.jpeg",
+    "date": "2026-05-05",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 43.150635,
+      "longitude": 19.295504
+    },
+    "location": {
+      "precise": "Opština Pljevlja",
+      "broad": "Crna Gora / Црна Гора"
+    }
+  },
+  {
     "filename": "IMG_4359.jpeg",
     "date": "2022-05-10",
     "width": 4032,
@@ -179,6 +207,20 @@
     "location": {
       "precise": "Los Angeles County",
       "broad": "California, United States"
+    }
+  },
+  {
+    "filename": "IMG_8157.jpeg",
+    "date": "2026-05-04",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 43.17424,
+      "longitude": 18.85803
+    },
+    "location": {
+      "precise": "Opština Plužine",
+      "broad": "81435, Crna Gora / Црна Гора"
     }
   },
   {
@@ -252,6 +294,20 @@
     }
   },
   {
+    "filename": "IMG_8398.jpeg",
+    "date": "2026-05-07",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 42.205166,
+      "longitude": 18.937012
+    },
+    "location": {
+      "precise": "Opština Budva",
+      "broad": "Crna Gora / Црна Гора"
+    }
+  },
+  {
     "filename": "IMG_6829.jpeg",
     "date": "2025-10-28",
     "width": 4032,
@@ -319,6 +375,20 @@
     "location": {
       "precise": "Ain",
       "broad": "Auvergne-Rhône-Alpes, France métropolitaine, France"
+    }
+  },
+  {
+    "filename": "IMG_8197.jpeg",
+    "date": "2026-05-05",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 43.15057,
+      "longitude": 19.295525
+    },
+    "location": {
+      "precise": "Opština Pljevlja",
+      "broad": "Crna Gora / Црна Гора"
     }
   },
   {
@@ -448,6 +518,20 @@
     }
   },
   {
+    "filename": "IMG_8165.jpeg",
+    "date": "2026-05-04",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 43.174057,
+      "longitude": 18.858212
+    },
+    "location": {
+      "precise": "Opština Plužine",
+      "broad": "81435, Crna Gora / Црна Гора"
+    }
+  },
+  {
     "filename": "IMG_3284.jpeg",
     "date": "2022-03-01",
     "width": 4032,
@@ -473,6 +557,20 @@
     "location": {
       "precise": "Niagara Region",
       "broad": "Golden Horseshoe, Ontario, Canada"
+    }
+  },
+  {
+    "filename": "IMG_8299.jpeg",
+    "date": "2026-05-05",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 43.079582,
+      "longitude": 19.144653
+    },
+    "location": {
+      "precise": "Opština Žabljak",
+      "broad": "84220, Crna Gora / Црна Гора"
     }
   },
   {
@@ -571,6 +669,20 @@
     "location": {
       "precise": "Vosges",
       "broad": "Grand Est, France métropolitaine, France"
+    }
+  },
+  {
+    "filename": "IMG_8200.jpeg",
+    "date": "2026-05-05",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 43.150623,
+      "longitude": 19.295492
+    },
+    "location": {
+      "precise": "Opština Pljevlja",
+      "broad": "Crna Gora / Црна Гора"
     }
   }
 ]

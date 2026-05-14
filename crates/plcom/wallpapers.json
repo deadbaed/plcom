@@ -38,7 +38,7 @@
     },
     "location": {
       "precise": "Florida",
-      "broad": "United States of America"
+      "broad": "United States"
     }
   },
   {
@@ -122,7 +122,7 @@
     },
     "location": {
       "precise": "Haut-Rhin",
-      "broad": "Grand Est, France métropolitaine, France"
+      "broad": "Collectivité européenne d'Alsace, Grand Est, France métropolitaine, France"
     }
   },
   {
@@ -178,7 +178,7 @@
     },
     "location": {
       "precise": "Los Angeles County",
-      "broad": "California, United States of America"
+      "broad": "California, United States"
     }
   },
   {
@@ -247,7 +247,7 @@
       "longitude": 14.4074135
     },
     "location": {
-      "precise": "Hlavní město Praha",
+      "precise": "obvod Praha 1",
       "broad": "Praha, Česko"
     }
   },
@@ -304,7 +304,7 @@
     },
     "location": {
       "precise": "Kings County",
-      "broad": "City of New York, New York, United States of America"
+      "broad": "New York, United States"
     }
   },
   {
@@ -429,7 +429,7 @@
       "longitude": 14.393522
     },
     "location": {
-      "precise": "Hlavní město Praha",
+      "precise": "obvod Praha 1",
       "broad": "Praha, Česko"
     }
   },
@@ -458,7 +458,7 @@
     },
     "location": {
       "precise": "Kings County",
-      "broad": "City of New York, New York, United States of America"
+      "broad": "New York, United States"
     }
   },
   {
@@ -499,7 +499,7 @@
       "longitude": 14.449577
     },
     "location": {
-      "precise": "Hlavní město Praha",
+      "precise": "obvod Praha 3",
       "broad": "Praha, Česko"
     }
   },

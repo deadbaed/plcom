@@ -1,14 +1,14 @@
+mod http;
 mod location;
 
+use location::parse_coordinates;
 use location::Gps;
 use location::Location;
-use location::parse_coordinates;
 
 use exif::{DateTime, In, Tag};
 use serde::Serialize;
 use std::fs::ReadDir;
 use std::io::BufReader;
-
 
 #[derive(Debug, Serialize)]
 pub struct Metadata {
@@ -87,10 +87,12 @@ impl MetadataList {
 
             match (date, latitude, longitude, width, height) {
                 (Some(date), Some(latitude), Some(longitude), Some(width), Some(height)) => {
-                    let gps = Gps::new(latitude,longitude);
+                    let gps = Gps::new(latitude, longitude);
                     let location = if get_location {
                         eprintln!("Getting location for `{}`", filename);
-                        gps.get_location()
+                        let gps = gps.get_location().ok();
+                        std::thread::sleep(std::time::Duration::from_secs(1)); // Chill out a bit https://operations.osmfoundation.org/policies/nominatim/
+                        gps
                     } else {
                         None
                     };

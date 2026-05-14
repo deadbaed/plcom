@@ -3,67 +3,21 @@ use serde::Serialize;
 
 #[derive(Debug, Serialize)]
 pub struct Location {
-    precise: String,
-    broad: String,
+    pub(crate) precise: String,
+    pub(crate) broad: String,
 }
 
 #[derive(Debug, Serialize)]
 pub struct Gps {
-    latitude: f32,
-    longitude: f32,
+    pub(crate) latitude: f32,
+    pub(crate) longitude: f32,
 }
 
 impl Gps {
     pub fn new(latitude: f32, longitude: f32) -> Self {
-        Self { latitude, longitude }
-    }
-
-    pub fn get_location(&self) -> Option<Location> {
-        match reqwest::blocking::Client::new()
-            .get(format!(
-                // Documentation: https://nominatim.org/release-docs/develop/api/Reverse/
-                "https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat={}&lon={}&zoom=8",
-                self.latitude, self.longitude,
-            ))
-            .header("User-Agent", "https://philippeloctaux.com")
-            .send()
-            .and_then(|data| data.json::<serde_json::Value>())
-        {
-            Ok(data) => {
-                let location = &data["display_name"];
-
-                if location.is_string() {
-                    let location = location.to_string();
-                    // Remove first and last characters (the string is wrapped in double quotes '"')
-                    let location = {
-                        let mut chars = location.chars();
-                        chars.next();
-                        chars.next_back();
-                        chars.as_str()
-                    };
-                    eprintln!("Raw location is `{}`", location);
-
-                    let mut location = location.split(',');
-                    let precise = location.next().unwrap_or("?").to_string();
-
-                    let mut broad: String =
-                        location.collect::<Vec<&str>>().join(",").trim().to_string();
-                    if broad.is_empty() {
-                        broad.push('?');
-                    }
-
-                    let location = Location { precise, broad };
-                    eprintln!("Location is `{:?}`", location);
-                    Some(location)
-                } else {
-                    eprintln!("Failed to find location.");
-                    None
-                }
-            }
-            Err(_) => {
-                eprintln!("Failed to make API call to get location.");
-                None
-            }
+        Self {
+            latitude,
+            longitude,
         }
     }
 }

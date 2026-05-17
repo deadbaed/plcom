@@ -21,10 +21,16 @@ let
 
     buildInputs = [
       # Add additional build inputs here
+      pkgs.openssl
     ]
     ++ lib.optionals pkgs.stdenv.isDarwin [
       # Additional darwin specific inputs can be set here
       pkgs.libiconv
+    ];
+
+    nativeBuildInputs = [
+      # Add extra native build inputs here, etc.
+      pkgs.pkg-config
     ];
   };
   # Build *just* the cargo dependencies, so we can reuse

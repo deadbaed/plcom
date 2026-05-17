@@ -1,0 +1,22 @@
+name: CI
+on:
+  push:
+jobs:
+  build:
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - uses: actions/checkout@v6
+      - uses: cachix/install-nix-action@v31
+      - name: Get Nixpkgs path
+        run: |
+          nixpkgs_path=$(nix eval --raw -f npins/default.nix nixpkgs)
+          echo "NIX_PATH=nixpkgs=$nixpkgs_path" >> "$GITHUB_ENV"
+      - name: Setup Attic cache
+        uses: ryanccn/attic-action@v0.5.0
+        with:
+          endpoint: ${{ secrets.ATTIC_ENDPOINT }}
+          cache: plcom
+          token: ${{ secrets.ATTIC_TOKEN }}
+      - run: nix-shell --run "treefmt --ci"
+      - run: nix-build ./package.nix -A cargoArtifacts
+      - run: nix-build ./package.nix -A wrappedPackage

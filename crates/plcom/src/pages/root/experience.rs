@@ -26,7 +26,7 @@ fn experience_logo(
     let class = LogoOptions { background }.with_class(class);
     let alt = format!("{} logo", name);
 
-    view! { <img loading="lazy" src=image alt=alt class=class/> }
+    view! { <img loading="lazy" src=image alt=alt class=class /> }
 }
 
 struct ExperienceLogo {

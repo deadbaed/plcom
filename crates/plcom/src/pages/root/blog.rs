@@ -53,23 +53,20 @@ impl<'a> Blog<'a> {
             .first()
             .map(|link| {
                 let link = Link::parse(&link.href, "Read post");
-                view! {
-                    {outline_button_link(link).into_any()}
-                }
+                view! { {outline_button_link(link).into_any()} }
             })
             .unwrap_or(().into_any());
 
         view! {
             <div class=tw_join!("rounded-2xl", "w-full", "bg-purple-950", "p-6")>
 
-                <div class=tw_join!("text-xl", "font-semibold", "mb-2")>{entry.title.to_string()}</div>
+                <div class=tw_join!(
+                    "text-xl", "font-semibold", "mb-2"
+                )>{entry.title.to_string()}</div>
                 <div class=tw_join!("flex")>
                     <div class=tw_join!(
                         "inline-flex", "items-center"
-                    )>
-                        {Icon::Calendar.into_any()}
-                        <span class=tw_join!("ml-2")>{date}</span>
-                    </div>
+                    )>{Icon::Calendar.into_any()} <span class=tw_join!("ml-2")>{date}</span></div>
                 </div>
 
                 {link.into_any()}
@@ -116,22 +113,20 @@ impl<'a> IntoAny for Blog<'a> {
         );
 
         view! {
-        <div>
-            <h1 class=tw_join!("text-4xl", "font-bold", "mb-4")>{title}</h1>
+            <div>
+                <h1 class=tw_join!("text-4xl", "font-bold", "mb-4")>{title}</h1>
 
-            <div class=tw_join!(
-                "grid", "grid-cols-1", "sm:grid-cols-2", "lg:grid-cols-3", "gap-6",
+                <div class=tw_join!(
+                    "grid", "grid-cols-1", "sm:grid-cols-2", "lg:grid-cols-3", "gap-6",
                 "place-content-center"
-            )>
-                {entries}
-            </div>
+                )>{entries}</div>
 
-            {paragraph}
+                {paragraph}
 
-            <div class=tw_join!("mt-4")>
-                {button_link(link, Some(Icon::Link), None).into_any()}
+                <div class=tw_join!(
+                    "mt-4"
+                )>{button_link(link, Some(Icon::Link), None).into_any()}</div>
             </div>
-        </div>
         }
         .into_any()
     }

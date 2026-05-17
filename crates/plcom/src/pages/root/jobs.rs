@@ -17,12 +17,13 @@ impl IntoAny for Work {
                 )>
 
                     {ExperienceHeader::new(
-                        self.start_date,
-                        self.end_date,
-                        self.name,
-                        self.position,
-                        Some(&self.logo),
-                    ).into_any()} <div class=tw_join!("space-y-2")>
+                            self.start_date,
+                            self.end_date,
+                            self.name,
+                            self.position,
+                            Some(&self.logo),
+                        )
+                        .into_any()} <div class=tw_join!("space-y-2")>
 
                         <p>{self.description}</p>
 

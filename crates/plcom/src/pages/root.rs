@@ -17,16 +17,16 @@ pub fn root_page(wallpaper: Option<&'static Wallpaper>, blog: Blog) -> impl Into
     view! {
         {hero::hero(wallpaper).into_any()}
 
-        <div class=tw_join!("container", "mx-auto", "px-4", "md:px-8", "lg:px-16", "py-16")>
+        <div class=tw_join!(
+            "container", "mx-auto", "px-4", "md:px-8", "lg:px-16", "py-16"
+        )>
             {whoami}
-            <div class=tw_join!("my-16", "space-y-16", "md:space-y-32")>
-                {www::list().into_any()}
-                {blog.into_any()}
-                {jobs::jobs().into_any()}
-                {projects::projects().into_any()}
-                {education::education_list().into_any()}
-                {talks::talks().into_any()}
-                {friends::friends().into_any()}
+            <div class=tw_join!(
+                "my-16", "space-y-16", "md:space-y-32"
+            )>
+                {www::list().into_any()} {blog.into_any()} {jobs::jobs().into_any()}
+                {projects::projects().into_any()} {education::education_list().into_any()}
+                {talks::talks().into_any()} {friends::friends().into_any()}
             </div>
         </div>
     }

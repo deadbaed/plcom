@@ -20,9 +20,7 @@ impl From<AnyView> for LeptosResponder {
 pub fn not_found() -> LeptosResponder {
     content_page(
         "404 Not Found",
-        view! {
-            <div>"This page could not be found."</div>
-        },
+        view! { <div>"This page could not be found."</div> },
     )
     .into()
 }

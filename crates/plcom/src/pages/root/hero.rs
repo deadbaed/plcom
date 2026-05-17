@@ -15,10 +15,7 @@ fn wallpaper_info(wallpaper: &'static Wallpaper) -> impl IntoAny {
                     "inline-flex", "items-center"
                 )>
                     {Icon::Map.into_any()}
-                    <a
-                        class=tw_join!("ml-1", "text-sm", "underline")
-                        href="/wallpapers"
-                    >
+                    <a class=tw_join!("ml-1", "text-sm", "underline") href="/wallpapers">
                         "See more!"
                     </a>
                 </div>
@@ -46,7 +43,8 @@ fn wallpaper_info(wallpaper: &'static Wallpaper) -> impl IntoAny {
                 <div class=tw_join!(
                     "inline-flex", "items-center"
                 )>
-                    {Icon::Calendar.into_any()} <span class=tw_join!("ml-1", "text-sm")>{wallpaper.date}</span>
+                    {Icon::Calendar.into_any()}
+                    <span class=tw_join!("ml-1", "text-sm")>{wallpaper.date}</span>
                 </div>
             </div>
 

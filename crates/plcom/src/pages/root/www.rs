@@ -10,9 +10,9 @@ impl IntoAny for Www {
     fn into_any(self) -> AnyView {
         view! {
             <div class=tw_join!("w-full", "h-auto", "md:w-auto")>
-                <div class=tw_join!("text-center")>
-                    {button_link(self.link, Some(self.icon), Some(true)).into_any()}
-                </div>
+                <div class=tw_join!(
+                    "text-center"
+                )>{button_link(self.link, Some(self.icon), Some(true)).into_any()}</div>
             </div>
         }
         .into_any()
@@ -54,7 +54,7 @@ pub fn list() -> impl IntoAny {
             "grid", "grid-cols-3", "lg:grid-cols-6", "gap-4", "place-content-center"
         )>
 
-        {www.into_iter().map(|w| {w.into_any()}).collect_view()}
+            {www.into_iter().map(|w| { w.into_any() }).collect_view()}
 
         </div>
     }

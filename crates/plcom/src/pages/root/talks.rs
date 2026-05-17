@@ -27,28 +27,31 @@ impl Talk {
 impl IntoAny for Talk {
     fn into_any(self) -> AnyView {
         view! {
-        <div class=tw_join!("rounded-2xl", "w-full", "bg-teal-950", "p-6")>
+            <div class=tw_join!("rounded-2xl", "w-full", "bg-teal-950", "p-6")>
 
-            <div class=tw_join!("text-xl", "font-semibold", "mb-4")>{self.title}</div>
+                <div class=tw_join!("text-xl", "font-semibold", "mb-4")>{self.title}</div>
 
-            <div class=tw_join!("flex")>
-                <div class=tw_join!(
-                    "inline-flex", "items-center"
-                )>
-                    {Icon::Calendar.into_any()}
-                    <span class=tw_join!("ml-2")>{self.date.to_string()}</span>
+                <div class=tw_join!("flex")>
+                    <div class=tw_join!(
+                        "inline-flex", "items-center"
+                    )>
+                        {Icon::Calendar.into_any()}
+                        <span class=tw_join!("ml-2")>{self.date.to_string()}</span>
+                    </div>
                 </div>
-            </div>
 
-            <div class=tw_join!("flex")>
-                <div class=tw_join!(
-                    "inline-flex", "items-center"
-                )>{Icon::Location.into_any()} <span class=tw_join!("ml-2")>{self.location}</span></div>
-            </div>
+                <div class=tw_join!("flex")>
+                    <div class=tw_join!(
+                        "inline-flex", "items-center"
+                    )>
+                        {Icon::Location.into_any()}
+                        <span class=tw_join!("ml-2")>{self.location}</span>
+                    </div>
+                </div>
 
-            {outline_button_link(self.link).into_any()}
-        </div>
-    }.into_any()
+                {outline_button_link(self.link).into_any()}
+            </div>
+        }.into_any()
     }
 }
 
@@ -122,9 +125,7 @@ pub fn talks() -> impl IntoAny {
             <div class=tw_join!(
                 "mt-4", "grid", "grid-cols-1", "sm:grid-cols-2", "lg:grid-cols-3", "gap-6",
                 "place-content-center"
-            )>
-                {talks.into_iter().map(|talk| talk.into_any()).collect_view()}
-            </div>
+            )>{talks.into_iter().map(|talk| talk.into_any()).collect_view()}</div>
 
         </div>
     }

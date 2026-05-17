@@ -12,29 +12,23 @@ pub fn shell(title: &str, children: impl IntoAny) -> AnyView {
         <!DOCTYPE html>
         <html lang="en">
             <head>
-                <meta charset="utf-8"/>
-                <meta name="viewport" content="width=device-width"/>
+                <meta charset="utf-8" />
+                <meta name="viewport" content="width=device-width" />
                 <link rel="stylesheet" href="/style.css" />
                 <title>{title}</title>
 
                 // favicon
-                <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
-                <link rel="icon" type_="image/png" sizes="32x32" href="/favicon-32x32.png"/>
-                <link rel="icon" type_="image/png" sizes="16x16" href="/favicon-16x16.png"/>
-                <link rel="manifest" href="/site.webmanifest"/>
-                <link
-                    rel="mask-icon"
-                    href="/safari-pinned-tab.svg"
-                    color="#0c4a6e"
-                />
-                <meta name="msapplication-TileColor" content="#0c4a6e"/>
-                <meta name="theme-color" content="#0c4a6e"/>
+                <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+                <link rel="icon" type_="image/png" sizes="32x32" href="/favicon-32x32.png" />
+                <link rel="icon" type_="image/png" sizes="16x16" href="/favicon-16x16.png" />
+                <link rel="manifest" href="/site.webmanifest" />
+                <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0c4a6e" />
+                <meta name="msapplication-TileColor" content="#0c4a6e" />
+                <meta name="theme-color" content="#0c4a6e" />
             </head>
 
             <body class=tw_join!("flex", "flex-col", "min-h-screen", "bg-gray-900", "text-white")>
-                <main class=tw_join!("flex-grow")>
-                    {children.into_any()}
-                </main>
+                <main class=tw_join!("flex-grow")>{children.into_any()}</main>
                 {footer().into_any()}
             </body>
             {stats().into_any()}
@@ -63,7 +57,11 @@ fn footer() -> impl IntoView {
     view! {
         <footer class=tw_join!("bg-black")>
             <div class=tw_join!("container", "mx-auto", "px-4", "py-8")>
-                <p>"© 2015 - "{year}" Philippe Loctaux, made with "{underline_link(Link::new(uri!("https://leptos.dev").into(), "Leptos"), None).into_any()}"."</p>
+                <p>
+                    "© 2015 - "{year}" Philippe Loctaux, made with "
+                    {underline_link(Link::new(uri!("https://leptos.dev").into(), "Leptos"), None)
+                        .into_any()}"."
+                </p>
             </div>
         </footer>
     }
@@ -72,10 +70,14 @@ fn footer() -> impl IntoView {
 fn stats() -> impl IntoView {
     view! {
         <script inner_html=r#"
-            window.goatcounter = {
-                path: function(p) { return location.host + p }
-            };
+        window.goatcounter = {
+        path: function(p) { return location.host + p }
+        };
         "#></script>
-        <script data-goatcounter="https://goatcounter.philt3r.eu/count" async src="https://goatcounter.philt3r.eu/count.js"></script>
+        <script
+            data-goatcounter="https://goatcounter.philt3r.eu/count"
+            async
+            src="https://goatcounter.philt3r.eu/count.js"
+        ></script>
     }
 }

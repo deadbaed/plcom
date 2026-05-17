@@ -62,12 +62,13 @@ impl IntoAny for Project {
                 )>
 
                     {ExperienceHeader::new(
-                        self.start_date,
-                        self.end_date,
-                        self.name,
-                        self.description,
-                        self.logo.as_ref(),
-                    ).into_any()}
+                            self.start_date,
+                            self.end_date,
+                            self.name,
+                            self.description,
+                            self.logo.as_ref(),
+                        )
+                        .into_any()}
                     <div class=tw_join!(
                         "space-y-2"
                     )>
@@ -75,9 +76,7 @@ impl IntoAny for Project {
                         {self
                             .presentation
                             .iter()
-                            .map(|p| {
-                                view! { <p>{*p}</p> }.into_any()
-                            })
+                            .map(|p| { view! { <p>{*p}</p> }.into_any() })
                             .collect_view()} <div>
                             <ul class=tw_join!(
                                 "list-disc", "mt-6"
@@ -105,7 +104,8 @@ impl IntoAny for Project {
                                                 "items-center", "rounded-md", "bg-blue-100", "px-2", "py-1",
                                                 "font-medium", "text-blue-700",
                                             )>{*t}</span>
-                                        }.into_any()
+                                        }
+                                            .into_any()
                                     })
                                     .collect_view()}
                             </div>

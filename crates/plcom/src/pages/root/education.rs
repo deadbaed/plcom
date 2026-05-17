@@ -11,13 +11,13 @@ impl IntoAny for Education {
             )>
 
                 {ExperienceHeader::new(
-                    self.start_date,
-                    self.end_date,
-                    self.institution,
-                    &subtitle,
-                    self.logo.as_ref(),
-                ).into_any()}
-                <div class=tw_join!("space-y-2")>
+                        self.start_date,
+                        self.end_date,
+                        self.institution,
+                        &subtitle,
+                        self.logo.as_ref(),
+                    )
+                    .into_any()} <div class=tw_join!("space-y-2")>
                     <ul class=tw_join!(
                         "list-disc", "mt-6"
                     )>

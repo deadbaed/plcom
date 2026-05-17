@@ -82,22 +82,22 @@ impl IntoAny for Friend {
     fn into_any(self) -> AnyView {
         view! {
             <a
-            href=self.uri.to_string()
-            class=tw_join!(
-                "hover:bg-gray-500", "transition-all", "duration-200", "flex", "items-center",
+                href=self.uri.to_string()
+                class=tw_join!(
+                    "hover:bg-gray-500", "transition-all", "duration-200", "flex", "items-center",
                 "rounded-lg", "p-2"
-            )
+                )
             >
 
-            <span class=tw_join!(
-                "rounded-full", "flex-shrink-0", "mr-4", "w-10", "h-10", "bg-sky-900", "text-white",
+                <span class=tw_join!(
+                    "rounded-full", "flex-shrink-0", "mr-4", "w-10", "h-10", "bg-sky-900", "text-white",
                 "flex", "items-center", "justify-center", "text-lg", "font-medium"
-            )>{self.name.initials()}</span>
-            <div>
-            <p class=tw_join!("font-bold")>{self.name.to_string()}</p>
-                <p>{self.domain_name()}</p>
+                )>{self.name.initials()}</span>
+                <div>
+                    <p class=tw_join!("font-bold")>{self.name.to_string()}</p>
+                    <p>{self.domain_name()}</p>
                 </div>
-                </a>
+            </a>
         }
         .into_any()
     }
@@ -133,11 +133,7 @@ pub fn friends() -> impl IntoView {
                 {friends
                     .into_iter()
                     .map(|friend| {
-                        view! {
-                            <li class=tw_join!("py-2")>
-                            {friend.into_any()}
-                            </li>
-                        }
+                        view! { <li class=tw_join!("py-2")>{friend.into_any()}</li> }
                     })
                     .collect_view()}
             </ul>

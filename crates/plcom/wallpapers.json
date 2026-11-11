@@ -191,8 +191,8 @@
       "longitude": 19.295504
     },
     "location": {
-      "precise": "Opština Pljevlja",
-      "broad": "Crna Gora / Црна Гора"
+      "precise": "Opština Žabljak",
+      "broad": "84220, Crna Gora / Црна Гора"
     }
   },
   {
@@ -387,8 +387,8 @@
       "longitude": 19.295525
     },
     "location": {
-      "precise": "Opština Pljevlja",
-      "broad": "Crna Gora / Црна Гора"
+      "precise": "Opština Žabljak",
+      "broad": "84220, Crna Gora / Црна Гора"
     }
   },
   {
@@ -556,7 +556,7 @@
     },
     "location": {
       "precise": "Niagara Region",
-      "broad": "Golden Horseshoe, Ontario, Canada"
+      "broad": "Ontario, Canada"
     }
   },
   {
@@ -681,8 +681,8 @@
       "longitude": 19.295492
     },
     "location": {
-      "precise": "Opština Pljevlja",
-      "broad": "Crna Gora / Црна Гора"
+      "precise": "Opština Žabljak",
+      "broad": "84220, Crna Gora / Црна Гора"
     }
   }
 ]

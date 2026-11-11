@@ -24,7 +24,7 @@ let
       environment = {
         PLCOM_ASSETS = "./public";
         PLCOM_BLOG_FEED = "/dev/null";
-        PLCOM_WALLPAPERS = "./public/wallpapers";
+        PLCOM_WALLPAPERS = "/Users/phil/opencloud/stuff/wallpapers/";
       };
     }
   ];

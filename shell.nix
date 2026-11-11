@@ -56,6 +56,9 @@ pkgs.mkShellNoCC {
     supervisordProject.supervisord-wrapper
     supervisordProject.supervisorctl-wrapper
     supervisordProject.supervisord-kill
+
+    # json lsp
+    vscode-langservers-extracted
   ];
   shellHook = supervisordProject.shellHook;
 }

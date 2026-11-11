@@ -14,6 +14,20 @@
     }
   },
   {
+    "filename": "IMG_0058.jpeg",
+    "date": "2026-10-30",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 37.17685,
+      "longitude": -3.5883527
+    },
+    "location": {
+      "precise": "Comarca de la Vega de Granada",
+      "broad": "Granada, Andalucía, España"
+    }
+  },
+  {
     "filename": "IMG_2287.jpeg",
     "date": "2021-09-11",
     "width": 2048,
@@ -81,6 +95,20 @@
     "location": {
       "precise": "Pachalik de Casablanca باشوية الدار البيضاء",
       "broad": "Préfecture de Casablanca عمالة الدار البيضاء, Casablanca-Settat ⵜⴰⴷⴷⴰⵔⵜ ⵜⵓⵎⵍⵉⵍⵜ-ⵙⵟⵟⴰⵜ الدار البيضاء-سطات, Maroc ⵍⵎⵖⵔⵉⴱ المغرب"
+    }
+  },
+  {
+    "filename": "IMG_9716.jpeg",
+    "date": "2026-10-25",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 37.38457,
+      "longitude": -5.9881387
+    },
+    "location": {
+      "precise": "Sevilla",
+      "broad": "Andalucía, España"
     }
   },
   {
@@ -224,6 +252,20 @@
     }
   },
   {
+    "filename": "IMG_0049.jpeg",
+    "date": "2026-10-30",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 37.176704,
+      "longitude": -3.5898082
+    },
+    "location": {
+      "precise": "Comarca de la Vega de Granada",
+      "broad": "Granada, Andalucía, España"
+    }
+  },
+  {
     "filename": "IMG_0360.jpeg",
     "date": "2021-10-10",
     "width": 4032,
@@ -235,6 +277,20 @@
     "location": {
       "precise": "Agglomération de Montréal",
       "broad": "Montréal (région administrative), Québec, Canada"
+    }
+  },
+  {
+    "filename": "IMG_0008.jpeg",
+    "date": "2026-10-30",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 37.178154,
+      "longitude": -3.5858
+    },
+    "location": {
+      "precise": "Comarca de la Vega de Granada",
+      "broad": "Granada, Andalucía, España"
     }
   },
   {
@@ -403,6 +459,20 @@
     "location": {
       "precise": "Le Fjord-du-Saguenay",
       "broad": "Saguenay–Lac-Saint-Jean, Québec, Canada"
+    }
+  },
+  {
+    "filename": "IMG_9708.jpeg",
+    "date": "2026-10-25",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 37.38444,
+      "longitude": -5.987861
+    },
+    "location": {
+      "precise": "Sevilla",
+      "broad": "Andalucía, España"
     }
   },
   {
@@ -627,6 +697,20 @@
     "location": {
       "precise": "Lisboa",
       "broad": "Portugal"
+    }
+  },
+  {
+    "filename": "IMG_0094.jpeg",
+    "date": "2026-10-30",
+    "width": 4032,
+    "height": 3024,
+    "gps": {
+      "latitude": 37.180058,
+      "longitude": -3.5967917
+    },
+    "location": {
+      "precise": "Comarca de la Vega de Granada",
+      "broad": "Granada, Andalucía, España"
     }
   },
   {
